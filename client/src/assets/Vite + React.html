@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">
+import RefreshRuntime from "/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+
+    <script type="module" src="./Vite + React_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:3000/vite.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Vite + React_files/css2" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + React</title>
+  <style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/App.css">body {
+  margin: 0%;
+  padding: 0%;
+  font-family: Dosis, sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+
+/* .image {
+  background-image: url('./assets/GloboLibros.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh; 
+  box-sizing: border-box;
+  overflow-y: scroll;
+  
+} */
+
+
+
+
+
+
+</style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/Views/Landing/StyledLanding.module.css">
+._Button_i68jy_2 {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 40px; 
+  color:white;
+  background-color: rgb(20, 20, 50);
+  font-family: 'Dosis', sans-serif;
+  font-size: x-large;
+  border-radius: 12px;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+._Button_i68jy_2:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(247, 240, 240, 0.35) 0%, rgba(236, 222, 222, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(235, 218, 218, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+._Button_i68jy_2:hover, ._Button_i68jy_2:focus, ._hButton_i68jy_37:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+ 
+}
+._Button_i68jy_2:hover:before, ._Button_i68jy_2:focus:before, ._hButton_i68jy_37:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  
+}
+  
+  ._bgContainer_i68jy_49 {
+    width: 100%;
+    height: 100vh;
+   
+  }
+  
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   
+  }
+  
+  ._container_i68jy_62 {
+    position: absolute;
+    width: 60%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+   
+  }
+
+  h1 {
+    
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 10px; 
+  }
+
+  h4 {
+    font-size: 2rem;
+   margin-top: 10px;
+  }</style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/components/NavBar/StyledNav.css" style="
+    margin-left: 90px;
+">*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --color-yellow: hsl(48, 89%, 50%);
+  --color-red: #db2b39;
+  --color-blue-dark: #29335c;
+  --color-blue: #2130b3;
+
+  --size-btn-collapse: 10.5rem;
+
+  --time-animation: 0.3s;
+
+  --box-shadow: 3px 7px 7px rgba(0 0 0 / 22%);
+}
+body {
+  font-family: 'Dosis', sans-serif;
+}
+
+.nav-main a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-main {
+  background-color: hsl(48, 89%, 50%);
+  padding: 0.6rem 1.2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav-main__btn-collapse-icon {
+  --size: 45px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background-color: var( --color-blue-dark);
+  padding: 0.6rem 0.3rem;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.nav-main__btn-collapse {
+  display: block;
+}
+
+.icon-nav {
+  display: block;
+  width: 60%;
+  height: 2px;
+  background-color: white;
+  transition: transform calc(var(--time-animation) / 2);
+}
+
+.nav-main__btn-collapse:checked + .nav-main__btn-collapse-icon .icon-nav:first-child {
+  transform: translateY(0.5em) rotate(45deg);
+}
+.nav-main__btn-collapse:checked + .nav-main__btn-collapse-icon .icon-nav:nth-of-type(2) {
+  transform: scale(0);
+}
+.nav-main__btn-collapse:checked + .nav-main__btn-collapse-icon .icon-nav:last-child {
+  transform: translateY(-0.5em) rotate(-45deg);
+}
+
+.nav-main__btn-collaps-bg {
+  height: 100%;
+  width: var(--size-btn-collapse);
+  background-color: var(--color-red);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(calc(var(--size-btn-collapse) / 2 * -1));
+  transition: transform var(--time-animation);
+}
+.nav-main__btn-collapse:checked ~ .nav-main__btn-collaps-bg {
+  transform: translateX(0);
+}
+
+.nav-main__menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: flex;
+  flex-direction: column;
+  width: var(--size-btn-collapse);
+  height: calc(50vh - 65px);
+  background-color: var(--color-red);
+  padding: 2rem;
+  font-size: large;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  color: white;
+  transform: scaleY(0);
+  transition: transform var(--time-animation);
+  transform-origin: top;
+}
+
+.nav-main__link-item {
+  
+  margin-bottom: 2rem;
+}
+
+.nav-main__btn-collapse:checked ~ .nav-main__menu {
+  transform: scaleY(1);
+}
+
+.nav-main__btn-collapse:checked ~ .nav-main__menu .nav-main__link-item {
+  animation: effectOpacity var(--time-animation) 0.3s forwards;
+}
+@keyframes effectOpacity {
+  to {
+    opacity: 1;
+  }
+}</style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/Views/Detail/StyledDetail.module.css">
+._DetailCard_dbnha_2 {
+    display: inline-block;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.747);
+    text-align: right;
+    align-items: flex-start;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+    width: 20%;
+    margin-left: 25%;
+    margin-top: 10px;
+  }
+  
+  ._Title_dbnha_17 {
+      font-family: 'Monoton', monospace;
+      animation: _neon1_dbnha_1 1.5s ease-in-out infinite alternate;
+      font-size: xxx-large;
+      font-weight: 700;
+      text-decoration: none;
+      -webkit-text-stroke: 2px rgba(3, 3, 91, 0.406);
+      color: white;
+      margin-left: 50%;
+      border-radius: 5px;
+      width: fit-content;
+      height: fit-content;
+      padding: 0.5rem;
+      margin: 3rem auto;
+  
+  }
+  
+  
+  @keyframes _neon1_dbnha_1 {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #3d06a4, 0 0 70px #3d06a4, 0 0 80px #3d06a4, 0 0 100px #3d06a4, 0 0 150px #3d06a4;
+    }
+    to {
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #3d06a4, 0 0 35px #3d06a4, 0 0 40px #3d06a4, 0 0 50px #3d06a4, 0 0 75px #3d06a4;
+    }
+  }
+    
+    ._Label_dbnha_44 {
+      font-family: 'Barriecito', cursive;
+      font-size: 1.5em;
+      font-weight: 400;
+      color: black;
+      justify-content: center;
+    }
+    
+    ._Image_dbnha_52 {
+      flex: none;
+      float: right;
+      max-width: 100%;
+      height: 50%;
+      margin-top: -30%;
+      margin-right: 25%;
+      border: 10px solid #ccc;
+      border-radius: 20px;
+      object-fit: contain;
+    }
+    </style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/components/Card/StyledCard.module.css">
+._CardCont_sf600_2 {
+    display: inline-block;
+    margin-right: -0.3rem;
+  }
+  
+  ._Button_sf600_7 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 40px; 
+    color:white;
+    background-color: rgb(20, 20, 50);
+    font-family: 'Dosis', sans-serif;
+    font-size: x-large;
+    border-radius: 12px;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  ._Button_sf600_7:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform, opacity;
+    transition-property: transform, opacity;
+  }
+  ._Button_sf600_7:hover, ._Button_sf600_7:focus, ._hButton_sf600_42:active {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+   
+  }
+  ._Button_sf600_7:hover:before, ._Button_sf600_7:focus:before, ._hButton_sf600_42:active:before {
+    opacity: 1;
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    
+  }
+  ._CardContainer_sf600_53 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    font-family: Caveat sans serif;
+    background: rgba(33, 33, 31, 0.244);
+    width: 300px;
+    height: 300px;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid #2929a4;
+    backdrop-filter: blur(5px);
+    margin: 1rem;
+    box-shadow: #ffd90019;
+    transition: .5s, color .10s;
+      -webkit-transition: .5s, color .10s;
+      -moz-transition: .5s, color .10s;
+    
+}
+
+  ._CardContainer_sf600_53:hover {
+    transform: translate(0, -20px); 
+    -webkit-transform: translatey(-20px);
+    -moz-transform: translatey(-20px); 
+    background: rgba(193, 194, 204, 0.436);
+    box-shadow: 0px 4px 6px rgba(235, 229, 229, 0.921); 
+}
+     
+  ._HomeTitle_sf600_83 {
+    
+    display: inline-block;
+    background-color: #34006fb6;
+    cursor: pointer;
+    border: none;
+    padding: 16px 20px;
+    margin: 1rem;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    font-family: 'Dosis', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+    
+  }
+  
+  ._HomeTitle_sf600_83:hover {
+    filter: brightness(1);
+    transform: scale(1.5);
+  }
+  
+  ._FavoritesTitle_sf600_107 {
+    font-family: 'Dosis', sans-serif;
+    font-size: xx-large;
+    font-weight: 700;
+    background-color: #ffd900ab;
+    text-decoration: none;
+    color: white;
+  }
+  
+  ._Label_sf600_116 {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 700;
+    font-size: x-large;
+    margin: 0px;
+    color: white;
+  }
+  
+  ._Image_sf600_124 {
+    max-width: 75%;
+    height: 30%;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    padding-bottom: 1rem;
+  }
+
+  ._linkwithoutunderline_sf600_132 {
+    text-decoration: none;
+}
+
+button {
+  position: absolute;
+  top: 0.5rem; 
+  right: 0.5rem; 
+  padding: 10px; 
+  background: white; 
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  
+}</style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/components/Paginado/Paginado.module.css">/* styles.module.css */
+._listStyles_mwc0g_2 {
+    display: flex;
+    justify-content: center;
+    padding: 0; /* Elimina el margen predeterminado */
+    list-style: none; /* Elimina los puntos de lista */
+  }
+  
+  ._listItemStyles_mwc0g_9 {
+    margin: 0 10px;
+    padding: 10px;
+    background-color: lightgray;
+    transition: background-color 0.3s;
+    display: inline; /* Muestra los elementos en línea */
+    border-radius: 5px;
+  }
+  
+  ._linkStyles_mwc0g_18 {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  ._listItemStyles_mwc0g_9:hover {
+    background-color: gray;
+  }
+  
+  ._linkStyles_mwc0g_18:hover {
+    color: red;
+  }
+  </style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/Views/Home/StyledHome.module.css">
+
+  
+  ._bgContainer_y9oeo_4 {
+    width: 100%;
+    height: 20vh;
+	display: flex;
+  	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+  
+  }
+  
+  ._container_y9oeo_14 {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    /* top: 50%;
+    left: 50%; */
+    /* background: rgba(0, 0, 0, 0.5);  */
+    border-radius: 20px;
+    padding: 20px;
+    display: inline-block; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Dosis', sans-serif;
+    font-size: 36px;
+    width: 50%;
+    margin-left: 22rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 10px;  
+	  color: white;
+	  text-align: center;
+	  justify-content: center;
+    margin-top: 30px;
+  }
+
+._SelectContainer_y9oeo_48 {
+	display: flex;
+	margin-bottom: 70px;
+	margin-left: 0px; 
+	border: 3px solid #ccc;
+   	font-size: 16px;
+   	height: 34px;
+  	width: 150px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+}
+</style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/components/SearchBar/StyledSearchBar.module.css">
+
+._StyledSearchContainer_10msk_3 {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 30vh; 
+
+}
+
+._StyledSearch_10msk_3 {
+  background-color: rgba(255, 255, 255, 0.157);
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  height: 50%;
+  width: 700px; 
+ 
+}
+._Button_10msk_20 {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 40px; 
+  margin-top: -20px;
+  margin-left: 30px;
+  color:white;
+  background-color: rgb(20, 20, 50);
+  font-family: 'Dosis', sans-serif;
+  font-size: x-large;
+  border-radius: 12px;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+._Button_10msk_20:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+._Button_10msk_20:hover, ._Button_10msk_20:focus, ._hButton_10msk_57:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+ 
+}
+._Button_10msk_20:hover:before, ._Button_10msk_20:focus:before, ._hButton_10msk_57:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  
+}
+  
+  ._Input_10msk_69 {
+    border: 3px solid #928c8cc8;
+    font-size: large;
+    width: 150px;
+    height: 40px;
+    margin-left: 30px;
+    margin-top: 20px;
+    
+  }</style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/components/CreateActivity/StyledCreate.module.css">._Container_18ty7_1 {
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px; 
+	color: white;
+   
+    justify-content: center; 
+    width: 700px; 
+    height: 80vh; 
+    background-color: rgba(255, 255, 255, 0.157);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+  
+   
+   
+  
+  }
+  
+  ._h1_18ty7_21{
+    font-size: xx-large;
+    font-weight: 300;
+  }
+
+  ._FormWrapper_18ty7_26 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    flex-direction: column; 
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 360px;
+    border-radius: 10px;
+    font-size: x-large;
+  }
+
+  ._SelectContainer_18ty7_41 {
+    display: flex;
+    margin-top: 1%;
+    margin-left: 0px; 
+    border: 3px solid #ccc;
+       font-size: 16px;
+       height: 34px;
+      width: 150px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+  }
+
+  ._labelForm_18ty7_55 {
+   padding: 30px;
+   border: 10px;
+    margin: 10px;
+  }
+
+  ._StyledErrors_18ty7_61 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: 300;
+    color: red
+  }
+
+  ._inputForm_18ty7_68 {
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+
+
+._formGrid_18ty7_82 {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px; 
+  width: fit-content;
+}
+
+._labelForm_18ty7_55 {
+  /* display: flex;
+  align-items: center;  */
+  text-align: left; 
+  padding: 5px;
+}
+
+._inputWrapper_18ty7_96 {
+  display: flex;
+  flex-direction: column;
+}
+
+._inputForm_18ty7_68,
+textarea {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+._inputForm_18ty7_68:hover,
+textarea:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+._checkboxContainer_18ty7_115 {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+}
+
+._checkboxContainer_18ty7_115 label {
+  display: flex;
+  align-items: center;
+}
+
+._Button_18ty7_126 {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 40px; 
+  margin-top: -20px;
+  margin-left: 30px;
+  color:white;
+  border: none; /* Elimina el borde predeterminado */
+  outline: none; /* Elimina el borde de enfoque */
+  cursor: pointer;
+  
+  font-family: 'Dosis', sans-serif;
+  font-size: x-large;
+  border-radius: 12px;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+._Button_18ty7_126:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+._Button_18ty7_126:hover, ._Button_18ty7_126:focus, ._hButton_18ty7_166:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+ 
+}
+._Button_18ty7_126:hover:before, ._Button_18ty7_126:focus:before, ._hButton_18ty7_166:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  
+}
+  
+  </style><style type="text/css" data-vite-dev-id="/Users/vickycorreas/Desktop/Programación/HENRY/HENRY Students/Proyecto-Individual-Countries/client/src/index.css">h1 {
+    font-size: xx-large;
+    font-weight: 300;
+  }</style></head>
+  <body>
+    <div id="root"><div><div class="_bgContainer_i68jy_49"><div><video src="/src/assets/BGVideo.mp4" autoplay="" loop=""></video><div class="_container_i68jy_62"><h1>Countrypedia</h1><h4>Click to find an interactive glossary of all countries</h4><a href="http://localhost:3000/home"><button class="_Button_i68jy_2">HOME</button></a></div></div></div></div></div>
+    <script type="module" src="./Vite + React_files/main.jsx"></script>
+  
+
+</body></html>

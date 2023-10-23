@@ -1,0 +1,102 @@
+
+
+.DetailCard {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px; 
+    margin-left: 20%;
+	color: black;
+    font-size: 1.5rem;
+    justify-content: center; 
+    width: 60%; 
+    height: auto; 
+    background-color: rgba(255, 255, 255, 0.747);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+  
+    }
+    
+    .Title {
+        font-family: "Dosis", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        align-items: center;
+        text-decoration: none;
+        -webkit-text-stroke: 2px rgba(91, 3, 4, 0.406);
+        color: red;
+        background-color: rgba(223, 197, 197, 0.411);
+        text-align: center;
+        border-radius: 5px;
+        width: 60%;
+        height: fit-content;
+        padding: 0.5rem;
+        margin: 3rem auto;
+    
+    }
+    
+    .MainLabel {
+        font-family: 'Dosis', sans-serif;
+        font-size: 2.0em;
+        font-weight: 700;
+        color: rgb(14, 14, 90);
+        justify-content: center;
+        text-align: center;
+      }
+    .Label {
+        font-family: 'Dosis', sans-serif;
+        font-size: 1.5em;
+        font-weight: 400;
+        color: rgb(14, 14, 90);
+        justify-content: center;
+        text-align: left;
+    }
+
+    .progressContainer {
+        position: relative;
+        width: 100%;
+        height: 20px;
+        background-color: white;
+        border-radius: 2em;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+      
+      .progressBar {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bar-color);
+        animation: fill-bar 5s ease-in-out forwards; 
+        transform: translateX(-100%);
+        border-radius: 2em 0 0 2em;  
+      }
+      
+      @keyframes fill-bar {
+        to {
+          transform: translateX(var(--fill-size));
+        }
+      }
+      
+         
+      @media (max-width: 700px) {
+        .DetailCard {
+          margin-left: 10%;
+        }
+      
+        .Title {
+          font-size: 3rem;
+        }
+        
+        .MainLabel {
+          font-size: 1.5em;
+        }
+      
+        .Label {
+          font-size: 1.2em;
+        }
+      }     
+
+

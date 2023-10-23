@@ -1,0 +1,7 @@
+.cardsContainer{
+    display: flex;
+    flex-direction: row repeat(4, 1fr);
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}

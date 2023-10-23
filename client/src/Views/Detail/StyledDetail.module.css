@@ -1,0 +1,64 @@
+
+.DetailCard {
+  position: absolute;
+    display: inline-block;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.747);
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    height: 70%;
+    width: 40%;
+    margin-left: 50%;
+    margin-top: 40px;
+    z-index: 10;
+  }
+  
+  .Title {
+      font-family: "Dosis", sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      align-items: center;
+      text-decoration: none;
+      -webkit-text-stroke: 2px rgba(91, 3, 4, 0.406);
+      color: red;
+      background-color: rgba(255, 0, 0, 0.124);
+      text-align: center;
+      border-radius: 5px;
+      width: 60%;
+      height: fit-content;
+      padding: 0.5rem;
+      margin: 3rem auto;
+  
+  }
+  
+    
+    .Label {
+      font-family: 'Dosis', sans-serif;
+      font-size: 1.5em;
+      font-weight: 400;
+      color: black;
+      justify-content: center;
+      text-align: left;
+    }
+    
+    .Image {
+      position: absolute;
+      flex: none;
+      width: 500px; 
+      height: 300px; 
+      margin-left: 10%; 
+      margin-top: 10%;
+      border: 1px solid #ccc;
+      border-radius: 50%; 
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); 
+    }    
+
+ 
+
+
+    
+    
+    

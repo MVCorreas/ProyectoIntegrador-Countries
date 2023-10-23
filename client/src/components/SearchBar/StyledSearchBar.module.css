@@ -1,0 +1,36 @@
+
+
+.StyledSearchContainer {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 30vh; 
+
+}
+
+.StyledSearch {
+  background-color: rgba(255, 255, 255, 0.157);
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  height: 50%;
+  width: 700px; 
+ 
+}
+  
+  .Input {
+    border: 3px solid #928c8cc8;
+    font-size: large;
+    width: 150px;
+    height: 40px;
+    margin-left: 30px;
+    margin-top: 20px;
+    
+  }
+
+  @media (max-width: 700px) {
+    .StyledSearch {
+      max-width: 100%; 
+      margin-top: -10%;
+    }
+  }

@@ -1,0 +1,50 @@
+body {
+  margin: 0%;
+  padding: 0%;
+  font-family: Dosis, sans-serif;
+  width: 100%;
+  height: 100vh;
+}
+
+@media (min-width: 700px) {
+  body {
+    
+  background-size: cover;
+  height: 100vh;
+  margin: 0; 
+  overflow: hidden; 
+  box-sizing: border-box;
+  }
+}
+
+/* .DetailBG {
+  background-image: url('./assets/GreenGlobe.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh; 
+  box-sizing: border-box;
+  overflow-y: scroll;
+
+}
+
+.HomeBG {
+  .DetailBG {
+    background-image: url('./assets/GloboLibros.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh; 
+    box-sizing: border-box;
+    overflow-y: scroll;
+  
+  }
+}
+
+
+
+
+
+ */

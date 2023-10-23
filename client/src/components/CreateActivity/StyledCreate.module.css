@@ -1,0 +1,232 @@
+:root {
+  --bar-color: royalblue;
+  --fill-size: 0%;
+}
+
+.Container {
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px; 
+	color: white;
+   
+    justify-content: center; 
+    width: 700px; 
+    height: 80vh; 
+    background-color: rgba(255, 255, 255, 0.157);
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+  
+   
+   
+  
+  }
+  
+  .FormTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Dosis', sans-serif;
+    font-size: 4rem;
+    font-weight: bold;
+    width: 40%;
+    height: 30%;
+    margin-left: 30%;
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 10px; 
+    -webkit-text-stroke: 2px rgba(91, 3, 4, 0.406);
+    color: red;
+	  text-align: center;
+	  justify-content: center;
+  }
+
+  .FormWrapper {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    flex-direction: column; 
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 360px;
+    border-radius: 10px;
+    font-size: x-large;
+    z-index: 10;
+  }
+
+  .SelectContainer {
+    display: flex;
+    margin-top: 1%;
+    margin-left: 0px; 
+    border: 3px solid #ccc;
+    font-size: 16px;
+    height: 34px;
+    width: 150px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+  }
+
+  .labelForm {
+   padding: 5px;
+   border: 10px;
+    margin: 10px;
+  }
+
+  .StyledErrors {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: 300;
+    color: red
+  }
+
+  .inputForm {
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px; 
+  width: 80%;
+}
+
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputForm,
+textarea {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.inputForm:hover,
+textarea:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+}
+
+.checkboxContainer label {
+  display: flex;
+  align-items: center;
+}
+
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 60px;
+  background:  #29335c;
+  color: white;
+  font-family: 'Dosis', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: .3s ease-in-out all;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  margin-left: 35%;
+
+}
+
+.ButtonSpan {
+  position: relative;
+  z-index: 2;
+  transition: .3s ease-in-out all;
+  
+}
+
+.Button::after {
+  content: "";
+  width: 100%;
+  height: 300px;
+  background: hsl(48, 89%, 50%);
+  color: #29335c; 
+  position: absolute;
+  z-index: 1;
+  top: -300px;
+  left: 0;
+  transition: .4s ease-in-out all;
+  border-radius: 0px 0px 300px 300px;
+}
+
+.Button:hover::after {
+  top: 0;
+}
+
+.progressContainer {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background-color: white;
+  border-radius: 2em;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progressBar {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bar-color);
+  animation: fill-bar 5s ease-in-out forwards; 
+  transform: translateX(-100%);
+  border-radius: 2em 0 0 2em;  
+}
+
+@keyframes fill-bar {
+  to {
+    transform: translateX(var(--fill-size));
+  }
+}
+
+   
+@media (max-width: 700px) {
+  .Container {
+    width: 90%;
+  }
+
+  .FormTitle {
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .FormWrapper {
+    width: 80%;
+    margin-left: 10%;
+  }
+}

@@ -1,0 +1,82 @@
+
+
+  
+  .FilterContainer {
+    width: 100%;
+    height: 20vh;
+	display: flex;
+  	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+  
+  }
+  
+  .container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    border-radius: 20px;
+    padding: 20px;
+    display: inline-block; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+
+  .HomeTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Dosis', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    width: 30%;
+    height: 30%;
+    margin-left: 35%;
+    background: rgba(255, 255, 255, 0.439);
+    border-radius: 20px;
+    padding: 10px;
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.095);
+    color: rgb(33, 6, 122);
+	  text-align: center;
+	  justify-content: center;
+    text-decoration: none;
+    padding: 0.5rem;
+   
+    
+  }
+
+.SelectContainer {
+	display: flex;
+	margin-bottom: 20px;
+  margin-top: -8%;
+	margin-left: 0px; 
+	border: 3px solid #ccc;
+   	font-size: 16px;
+   	height: 34px;
+  	width: 150px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+}
+
+@media (max-width: 700px) {
+  .FilterContainer {
+    height: auto; 
+  }
+
+  .HomeTitle {
+    font-size: 3rem; 
+    width: 60%; 
+    height: auto; 
+    margin-left: 20%; 
+    padding: 5px; 
+  }
+
+  .SelectContainer {
+    width: 100%; 
+  }
+}
