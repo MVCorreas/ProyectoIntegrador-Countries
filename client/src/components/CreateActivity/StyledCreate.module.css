@@ -1,7 +1,42 @@
 :root {
   --bar-color: royalblue;
   --fill-size: 0%;
+  --arrow-bg: rgba(255, 255, 255, 0.3);
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+  --option-bg: rgb(158, 35, 35);
+  --select-bg: rgba(255, 255, 255, 0.2);
 }
+
+  
+* {
+  box-sizing: border-box;
+}
+
+select {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font-size: 15px;
+  width: 20rem;
+  padding: 0.5rem 3rem 0.5rem 0.5rem;
+  background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    background-color: #db2b3a69;
+    color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  &::-ms-expand {
+    display: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  option {
+    color: inherit;
+  }
+}
+
 
 .Container {
   display: flex;
@@ -34,7 +69,7 @@
     height: 30%;
     margin-left: 30%;
     margin-top: 10px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.454);
     border-radius: 20px;
     padding: 10px; 
     -webkit-text-stroke: 2px rgba(91, 3, 4, 0.406);
@@ -44,15 +79,17 @@
   }
 
   .FormWrapper {
+    background: url('https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png') repeat;
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
     flex-direction: column; 
-    background-color: rgba(255, 255, 255, 0.5);
-    color: white;
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.773);
+    color: #29335c;
+    font-weight: 900;
+    padding: 30px;
     margin-top: 20px;
     margin-left: 360px;
     border-radius: 10px;
@@ -78,10 +115,12 @@
    padding: 5px;
    border: 10px;
     margin: 10px;
+    font-family: 'Gochi Hand', cursive;
+    font-weight: 900;
   }
 
   .StyledErrors {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: medium;
     font-weight: 300;
     color: red
@@ -89,6 +128,7 @@
 
   .inputForm {
     padding: 10px;
+    background-color: #db2b3a47;
     border: 1px solid #ccc;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
@@ -96,7 +136,12 @@
   textarea {
     padding: 10px;
     border: 1px solid #ccc;
+    background-color: #db2b3a47;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  input::placeholder {
+    color: white;
   }
 
 
@@ -213,6 +258,11 @@ textarea:hover {
     transform: translateX(var(--fill-size));
   }
 }
+
+
+
+
+
 
    
   

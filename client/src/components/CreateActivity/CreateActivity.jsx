@@ -249,7 +249,7 @@ function validation(property, value) {
         <div>
             <h1 className={styles.FormTitle}>Create your Activity</h1>
 
-            <div >
+            <div className={styles.FormContainer}>
             <form onSubmit={(e) => handleSubmit(e)} className={styles.FormWrapper}>
                 <div className={styles.formGrid}>
                     <div className={styles.labelForm} >
