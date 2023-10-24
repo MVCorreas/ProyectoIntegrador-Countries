@@ -81,22 +81,6 @@
       }
       
          
-      @media (max-width: 700px) {
-        .DetailCard {
-          margin-left: 10%;
-        }
-      
-        .Title {
-          font-size: 3rem;
-        }
         
-        .MainLabel {
-          font-size: 1.5em;
-        }
-      
-        .Label {
-          font-size: 1.2em;
-        }
-      }     
 
 

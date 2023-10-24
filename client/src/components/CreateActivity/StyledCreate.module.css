@@ -215,18 +215,4 @@ textarea:hover {
 }
 
    
-@media (max-width: 700px) {
-  .Container {
-    width: 90%;
-  }
-
-  .FormTitle {
-    width: 60%;
-    margin-left: 20%;
-  }
-
-  .FormWrapper {
-    width: 80%;
-    margin-left: 10%;
-  }
-}
+  

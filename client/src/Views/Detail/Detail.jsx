@@ -10,7 +10,7 @@ import axios from 'axios';
 
 
 
-function Detail(props) {
+function Detail() {
   const { id } = useParams();
   const country = useSelector((state) => state.countryDetail);
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ function Detail(props) {
             <p className={styles.Label}>Population: {country.population}</p>
             {/* {renderActivities()} */}
             <p className={styles.Label}>Activities:</p>
-            <Link to={`/countries/${props.id}/activities`}>
+            <Link to={`/countries/${id}/activities`}>
               <button className={buttons.Button}>
                 <span className={buttons.ButtonSpan}>+ INFO</span>
               </button>

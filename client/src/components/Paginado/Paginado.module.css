@@ -42,14 +42,4 @@
     font-weight: 500;
   }
   
-  @media (max-width: 768px) {
-    .listStyles {
-      flex-wrap: wrap; 
-    }
   
-    .listItemStyles {
-      margin: 5px; 
-      width: 10%; 
-      margin-top: 10%;
-    }
-  }

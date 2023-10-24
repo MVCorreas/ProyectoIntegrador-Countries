@@ -13,7 +13,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); //pagina principal
   const [order, setOrder] = useState('');
   const [countriesPerPage, setCountriesPerPage] = useState(10); //cantidad de cartas por pag
-  const myFavorites = useSelector((state) => state.myFavorites);
+  //const myFavorites = useSelector((state) => state.myFavorites);
 
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
@@ -96,9 +96,11 @@ export default function Home() {
             onPageChange={handlePageChange}
           />
 
-        {currentCountries?.map((country) => (
-          <Card key={country.id} flag={country.flag} name={country.name} continents={country.continents} />
-        ))}
+      
+          {currentCountries.map((country) => (
+            <Card key={country.id} id={country.id} name={country.name} flag={country.flag} continents={country.continents} activities={country.Activities}/>
+          ))}
+      
         
       </div>
     </div>

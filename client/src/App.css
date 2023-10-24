@@ -6,17 +6,6 @@ body {
   height: 100vh;
 }
 
-@media (min-width: 700px) {
-  body {
-    
-  background-size: cover;
-  height: 100vh;
-  margin: 0; 
-  overflow: hidden; 
-  box-sizing: border-box;
-  }
-}
-
 /* .DetailBG {
   background-image: url('./assets/GreenGlobe.jpeg');
   background-size: cover;

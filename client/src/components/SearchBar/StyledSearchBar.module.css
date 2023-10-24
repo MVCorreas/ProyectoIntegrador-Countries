@@ -27,10 +27,3 @@
     margin-top: 20px;
     
   }
-
-  @media (max-width: 700px) {
-    .StyledSearch {
-      max-width: 100%; 
-      margin-top: -10%;
-    }
-  }
