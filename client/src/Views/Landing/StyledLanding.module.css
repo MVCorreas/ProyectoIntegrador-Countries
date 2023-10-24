@@ -44,7 +44,7 @@
     font-size: 5rem;
     font-weight: 600;
     margin: 0;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.626);
     border-radius: 20px;
     padding: 10px; 
     color: #29335c;
@@ -55,4 +55,24 @@
     font-size: 1.5rem;
    margin-top: 10px;
    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      width: 80%; /* Cambia el ancho para pantallas más pequeñas */
+      height: auto; /* Ajusta la altura automáticamente */
+    }
+  
+    .LandingTitle {
+      font-size: 3rem; /* Reduce el tamaño del título */
+    }
+
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+    }
   }

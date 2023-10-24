@@ -35,6 +35,11 @@
         margin: 3rem auto;
     
     }
+
+    .content {
+      width: 70%;
+      height: fit-content;
+    }
     
     .MainLabel {
         font-family: 'Dosis', sans-serif;

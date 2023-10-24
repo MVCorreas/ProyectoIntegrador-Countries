@@ -23,52 +23,70 @@ function Detail() {
   }, [dispatch, id]);
 
   const countryDetail = () => {
-    console.log(country)
     if (country) {
-     
-      
       return (
-        <div>
-          <div className={styles.DetailCard}>
-            
-            <h2 className={styles.Title}>{country.name}</h2>
-            <p className={styles.Label}>ID: {country.id}</p>
-            <p className={styles.Label}>Continent: {country.continents}</p>
-            <p className={styles.Label}>Capital: {country.capital}</p>
+        <>
+          <div>
+
+            <h2 >ID: {country.id}</h2>
+            <h2>Continent: {country.continents}</h2>
+            <h2 >Capital: {country.capital}</h2>
             {country.subregion ? (
-              <p className={styles.Label}>Subregion: {country.subregion}</p>
+              <h2 >Subregion: {country.subregion}</h2>
             ) : (
-              <p className={styles.Label}>Subregion: Information not available</p>
+              <h2 >Subregion: Information not available</h2>
             )}
             {country.area ? (
-              <p className={styles.Label}>Area: {country.area}</p>
+              <h2 >Area: {country.area}</h2>
             ) : (
-              <p className={styles.Label}>Area: Information not available</p>
+              <h2 >Area: Information not available</h2>
             )}
-            <p className={styles.Label}>Population: {country.population}</p>
-            {/* {renderActivities()} */}
-            <p className={styles.Label}>Activities:</p>
-            <Link to={`/countries/${id}/activities`}>
-              <button className={buttons.Button}>
-                <span className={buttons.ButtonSpan}>+ INFO</span>
-              </button>
-            </Link>
+            <h2 >Population: {country.population}</h2>
           </div>
-         
-          <div>
-            <img className={styles.Image} src={country.flag} alt='image' />
-          </div>
-          
-        </div>
+        </>
       );
     } else {
       return <p>No information available for the selected country</p>;
     }
   }
-
+     
+      
   return (
-    <div>
-      {countryDetail()}
+    <div className={styles.bgContainer}>
+       <h1 className={styles.Title}>{country.name}</h1>
+      <div className={styles.detailContainer}>
+       
+        <div className={styles.DetailCard}>
+          {countryDetail()}
+        </div>
+        <div className={styles.DetailCard}>
+        <h2>Find what to do in {country.name}</h2>
+        <h2>Tourism and Activities</h2>
+          <Link to={`/countries/${id}/activities`}>
+            
+            <button className={buttons.Button}>
+              <span className={buttons.ButtonSpan}>+ INFO</span>
+            </button>
+          </Link>
+        </div>
+        <div className={styles.DetailCard}>
+          <h2>Planning a trip?</h2>
+          <a href='https://www.expedia.com' target='_blank'>
+          <button className={buttons.Button}>
+              <span className={buttons.ButtonSpan}>EXPEDIA</span>
+            </button>
+          </a>
+          <a href='https://www.tripadvisor.com' target='_blank'>
+          <button className={buttons.Button}>
+              <span className={buttons.ButtonSpan}>TRIPADVISOR</span>
+            </button>
+          </a>
+           
+        </div>
+        <div className={styles.imageContainer}>
+          <img className={styles.Image} src={country.flag} alt='image' />
+        </div>
+      </div>
     </div>
   );
 }

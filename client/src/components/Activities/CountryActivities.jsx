@@ -36,9 +36,9 @@ function CountryActivities() {
     <h1 className={styles.Title}>Touristic Activities in: {countryName}</h1>
     <div className={styles.DetailCard}>
       {activities.length > 0 ? (
-        <ul>
+        <ul className={styles.content}>
           {activities.map((activity, index) => (
-            <li key={index}>
+            <p key={index}>
               <h3 className={styles.MainLabel}>{activity.name}</h3> 
               <h4 className={styles.Label}>Type:</h4> {activity.type}<br />
               <h4 className={styles.Label}>Description:</h4> {activity.description}<br />
@@ -51,7 +51,7 @@ function CountryActivities() {
 
               <h4 className={styles.Label}>Duration:</h4> {activity.duration}<br />
               <h4 className={styles.Label}>Season:</h4> {activity.season}
-            </li>
+            </p>
           ))}
         </ul>
       ) : (
