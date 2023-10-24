@@ -37,7 +37,7 @@ export default function Nav({ onLogout }) {
 
     <div className='nav-main__menu'>
         <a href='/home' className='nav-main__link-item'>Home</a>
-        <a href='/about' className='nav-main__link-item'>About</a>
+        <a href='/favorites' className='nav-main__link-item'>Favorites</a>
         <a href='/activities' className='nav-main__link-item'>Activity Creator</a>
         <a href='/' className='nav-main__link-item'>Log Out</a>
     </div>

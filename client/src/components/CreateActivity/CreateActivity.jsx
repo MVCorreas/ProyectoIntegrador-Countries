@@ -291,6 +291,7 @@ function validation(property, value) {
                         value={input.type}
                         name="type"
                         onChange={(e) => handleSelect(e)}
+                        className={styles.selectForm}
                     >
                         <option value="SelectType">Select a Type</option>
                         <option value="City">City</option>
@@ -310,6 +311,7 @@ function validation(property, value) {
                     value={input.season}
                     name="season"
                     onChange={(e) => handleSelect(e)}
+                    className={styles.selectForm}
                     >
                     <option value="SelectSeason">Select a Season</option>
                     <option value="Winter">Winter</option>
@@ -328,6 +330,7 @@ function validation(property, value) {
                     value={input.difficulty}
                     name="difficulty"
                     onChange={(e) => handleSelect(e)}
+                    className={styles.selectForm}
                 >
                     <option value="SelectDifficulty">Select a level of difficulty</option>
                     <option value="1">1</option>
@@ -364,7 +367,7 @@ function validation(property, value) {
                     <label>Countries:</label>
                 </div>
                 <div>
-                <select onChange={(e) => handleSelect(e)} name="countries"> 
+                <select onChange={(e) => handleSelect(e)} name="countries" className={styles.selectForm}> 
                 <option value="SelectCountry">Select a Country</option> 
                 {countries
                     .slice() // Crea una copia del array original para no modificarlo directamente
@@ -375,7 +378,9 @@ function validation(property, value) {
                         </option>
                     ))}
                 </select>
+                <div>
                 {formSubmitted && errors.countries && <span className={styles.StyledErrors}>{errors.countries}</span>}
+                </div>
                 </div>
 
                 {input.countries.map((country) => (

@@ -6,34 +6,3 @@ body {
   height: 100vh;
 }
 
-/* .DetailBG {
-  background-image: url('./assets/GreenGlobe.jpeg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100vh; 
-  box-sizing: border-box;
-  overflow-y: scroll;
-
-}
-
-.HomeBG {
-  .DetailBG {
-    background-image: url('./assets/GloboLibros.jpeg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    height: 100vh; 
-    box-sizing: border-box;
-    overflow-y: scroll;
-  
-  }
-}
-
-
-
-
-
- */
