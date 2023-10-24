@@ -69,7 +69,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from '../Card/StyledCard.module.css';
 
 const Card = (props) => {
@@ -108,6 +108,7 @@ const Card = (props) => {
               ❤️
             </button>
           ) : (
+            
             <button className={styles.Favbutton} onClick={handleFavorite}>
               🤍
             </button>

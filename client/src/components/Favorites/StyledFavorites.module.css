@@ -1,10 +1,53 @@
  
+ .neonText {
+	color: hsl(48, 89%, 50%);
+	font-family: 'Dosis', sans-serif;
+	animation: neon1 1.5s ease-in-out infinite alternate;
+	font-size: 6em;
+	padding: 5%;
+	margin-top: 5px;
+	margin-bottom: 1px;
+	text-align: center;
+	
+  }
   
+
+@keyframes neon1 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ffc711, 0 0 70px #ffc711, 0 0 80px #ffc711, 0 0 100px #ffc711, 0 0 150px #ffc711;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ffc711, 0 0 35px #ffc711, 0 0 40px #ffc711, 0 0 50px #ffc711, 0 0 75px #ffc711;
+  }
+}
+
+@keyframes layerupanim
+{
+	from {
+		height: 140px;
+	}
+	to {
+		height: 155px;
+	}
+}
+
+@keyframes layercorneranim
+{
+	from {
+		height: 400px;
+	}
+	to {
+		height: 540px;
+	}
+}
+ 
 
 .FavCards {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-direction: row repeat(4, 1fr);
+	justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 	margin-top: 20px; 
 	color: white;
 }

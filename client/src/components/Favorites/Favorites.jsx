@@ -1,51 +1,11 @@
-
-// import { useDispatch } from "react-redux";
-// import React from "react";
-// import { useSelector } from "react-redux";
-// import styles from './StyledFavorites.module.css';
-// import Card from '../Card/Card';
-// import { useEffect } from "react";
-// import { addFav } from "../../redux/actions";
-
-// const Favorites = () => {
-
-//   const dispatch = useDispatch();
-
-//   //const [aux, setAux] = useState(false);
-
-//   const myFavorites = useSelector((state) => state.myFavorites);
-
-//   useEffect(() => {
-//     // Cuando el componente se monta, carga la lista de países favoritos
-//     console.log('El componente se ha montado');
-//     dispatch(addFav());
-//   }, [dispatch]);
-
-
-//   return (
-//     <div>
-//       <h1 className={styles.Title}>My Favorites</h1>
-//       <div className={styles.CardContainer}>
-//         {myFavorites.map((fav) => {
-//           return (
-//             <div className={styles.CardCont} key={fav.id}>
-//               <img className={styles.Image} src={fav.flag} alt={fav.name} />
-//               <h2 className={styles.Button}>{fav.name}</h2>
-//             </div>
-//           )})}
-//           </div>
-//     </div>
-//   )
-// }
-
-
-// export default Favorites;
-
 import React, { useState, useEffect } from 'react';
 import styles from './StyledFavorites.module.css';
+import Card from '../Card/Card';
 
 const Favorites = () => {
   const [favoriteCards, setFavoriteCards] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 5; // Cantidad de tarjetas por página
 
   useEffect(() => {
     // Recupera los favoritos del localStorage cuando se carga la página
@@ -53,17 +13,36 @@ const Favorites = () => {
     setFavoriteCards(storedFavorites);
   }, []);
 
+  // Calcula el índice de la última tarjeta en la página actual
+  const indexOfLastCard = currentPage * cardsPerPage;
+  // Calcula el índice de la primera tarjeta en la página actual
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  // Obtiene las tarjetas para mostrar en la página actual
+  const currentCards = favoriteCards.slice(indexOfFirstCard, indexOfLastCard);
+
+  // Función para manejar el cambio de página
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div>
-      <h1>Mis Favoritos</h1>
-      <ul>
-        {favoriteCards.map((card) => (
-          <li key={card.id}>
-            <img src={card.flag} alt={`${card.name} Flag`} />
-            <span>{card.name}</span>
-          </li>
+      <h1 className={styles.neonText}>Mis Favoritos</h1>
+
+      <ul className={styles.FavCards}>
+        {currentCards.map((card) => (
+          <Card key={card.id} id={card.id} name={card.name} flag={card.flag} continents={card.continents} />
         ))}
       </ul>
+
+      {/* Botones de paginación */}
+      <div className={styles.pagination}>
+        {Array.from({ length: Math.ceil(favoriteCards.length / cardsPerPage) }).map((_, index) => (
+          <button key={index} onClick={() => handlePageChange(index + 1)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
