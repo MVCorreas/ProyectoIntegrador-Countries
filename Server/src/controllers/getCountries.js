@@ -42,11 +42,10 @@ const getCountries = async (req, res) => {
         res.status(200).json(countries);
     } catch (error) {
         console.error(error);
-        const errorMessage = error.includes(404) ? 'Country not found' : 'Internal Server Error';
-        const statusCode = error.includes(404) ? 404 : 500;
-
+        const errorMessage = error instanceof TypeError && error.message.includes('404') ? 'Country not found' : 'Internal Server Error';
+        const statusCode = error instanceof TypeError && error.message.includes('404') ? 404 : 500;
         res.status(statusCode).json({ error: errorMessage });
-    }
+      }
 };
 
 module.exports = getCountries;

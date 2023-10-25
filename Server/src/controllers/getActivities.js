@@ -20,11 +20,10 @@ const getActivities = async (req, res) => {
         res.json(activities);
     } catch (error) {
         console.error(error);
-        const errorMessage = error.status === 404 ? 'Activities not found' : 'Internal Server Error';
-        const statusCode = error.status === 404 ? 404 : 500;
-
+        const errorMessage = error instanceof TypeError && error.message.includes('404') ? 'Country not found' : 'Internal Server Error';
+        const statusCode = error instanceof TypeError && error.message.includes('404') ? 404 : 500;
         res.status(statusCode).json({ error: errorMessage });
-    }
+      }
 }
 
 module.exports = getActivities;

@@ -1,3 +1,5 @@
+//!TESTING: Comennto process.env
+
 //?CREAMOS LA BDD
 
 require("dotenv").config();
@@ -8,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
-process.env.DB_HOST = 'localhost';
+//process.env.DB_HOST = 'localhost';
 console.log(process.env.DB_HOST);
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {

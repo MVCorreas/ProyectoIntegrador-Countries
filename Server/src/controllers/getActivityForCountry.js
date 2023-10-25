@@ -28,7 +28,9 @@ const getActivitiesForCountry = async (req, res) => {
         res.status(200).json(activities);
       } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        const errorMessage = error instanceof TypeError && error.message.includes('404') ? 'Country not found' : 'Internal Server Error';
+        const statusCode = error instanceof TypeError && error.message.includes('404') ? 404 : 500;
+        res.status(statusCode).json({ error: errorMessage });
       }
 }
 

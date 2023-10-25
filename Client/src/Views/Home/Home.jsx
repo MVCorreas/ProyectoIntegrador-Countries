@@ -81,11 +81,6 @@ export default function Home() {
             <option value="high">Highest Population</option>
             <option value="low">Lowest Population</option>
           </select>
-          {/* <select onChange={handleFilterChange} value="filter" className={styles.SelectContainer}>
-          <option value="Favorites">Favorites</option>
-          <option value="NotFavorites">Not Favorites</option>
-        </select> */}
-        
         </div>
         <Paginado
             countriesPerPage={countriesPerPage}

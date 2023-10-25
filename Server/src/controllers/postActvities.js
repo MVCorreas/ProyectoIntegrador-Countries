@@ -33,13 +33,9 @@ const postActivities = async (req, res) => {
     res.status(201).json('Activity created successfully');
   } catch (error) {
     console.error(error);
-    if (error.status === '404') {
-      return res.status(404).json({ error: error.message });
-    } else if (error.status === '500') {
-      return res.status(500).json({ error: error.message });
-    } else {
-      return res.send({ error: error.message });
-    }
+    const errorMessage = error instanceof TypeError && error.message.includes('404') ? 'Country not found' : 'Internal Server Error';
+    const statusCode = error instanceof TypeError && error.message.includes('404') ? 404 : 500;
+    res.status(statusCode).json({ error: errorMessage });
   }
 };
 

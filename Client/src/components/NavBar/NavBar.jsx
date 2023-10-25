@@ -27,7 +27,7 @@ export default function Nav({ onLogout }) {
     <a href='https://www.facebook.com/vickycorreas/' target='_blank' className='social-networks__link-item'>
     <img src={Facebook} alt='Facebook' className='social-icon' />
     </a>
-    <a href='https://github.com/MVCorreas/Proyecto-Individual-Countries' target='_blank' className='social-networks__link-item'>
+    <a href='https://github.com/MVCorreas/ProyectoIntegrador-Countries' target='_blank' className='social-networks__link-item'>
     <img src={Github} alt='Github' className='social-icon' />
     </a>
     <a href='https://www.linkedin.com/in/mar%C3%ADa-victoria-correas-148049b2/' target='_blank' className='social-networks__link-item'>
