@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { getCountryName, getDbCountries } from '../../redux/actions';
-import styles from '../SearchBar/StyledSearchBar.module.css';
+import styles from './StyledSearchBar.module.css';
 import buttons from '../../Styles/Buttons.module.css';
 
 export default function SearchBar () {
