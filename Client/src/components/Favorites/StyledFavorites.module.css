@@ -220,6 +220,19 @@
     transform: scale(1);
   }
 }
+
+.NoFavMessage {
+	font-family: 'Dosis', sans-serif;
+	font-size: 3rem;
+	font-weight: 700;
+	text-align: center;
+	color: white;
+	width: 50%;
+	height: 50%;
+	margin: 0 auto;
+	background-color: rgba(65, 105, 225, 0.322);
+	margin-top: 60px;
+}
  
   
 

@@ -56,6 +56,7 @@ const Favorites = () => {
     <div>
       <h1 className={styles.neonText}>Favorites</h1>
 
+      {favorites.length > 1 && ( // Verificar si hay más de 1 favorito
       <Paginado
         countriesPerPage={cardsPerPage}
         allCountries={favorites.length}
@@ -63,9 +64,11 @@ const Favorites = () => {
         totalPages={Math.ceil(favorites.length / cardsPerPage)}
         currentPage={currentPage}
       />
+    )}
 
-        {favorites.length === 0 ? (
-          <p>No Favorite Countries for display</p>
+
+        {favorites.length === 1 ? (
+          <h2 className={styles.NoFavMessage}>No Favorite Countries for display</h2>
         ) : (
         <ul className={styles.FavoriteContainer}>
           {currentCards.map((card) => (
