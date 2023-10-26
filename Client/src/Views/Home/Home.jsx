@@ -56,7 +56,7 @@ export default function Home() {
         <h1 className={styles.HomeTitle}>COUNTRYPEDIA</h1>
         <SearchBar />
         <div className={styles.FilterContainer}>
-          <select onChange={(e) => dispatch(filterCountriesByContinent(e.target.value))} className={styles.SelectContainer}>
+          <select onChange={(e) => dispatch(filterCountriesByContinent(e.target.value))} className={styles.selectContainer}>
             <option value="AllContinents">All Countries</option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
@@ -65,7 +65,7 @@ export default function Home() {
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
           </select>
-          <select onChange={(e) => dispatch(filterByActivity(e.target.value))} className={styles.SelectContainer}>
+          <select onChange={(e) => dispatch(filterByActivity(e.target.value))} className={styles.selectContainer}>
             <option value="AllActivities">All Activities</option>
             <option value="City">City</option>
             <option value="Country">Country</option>
@@ -73,11 +73,11 @@ export default function Home() {
             <option value="Forest">Forest</option>
             <option value="Mountain">Mountain</option>
           </select>
-          <select onChange={(e) => dispatch(orderByName(e.target.value))} className={styles.SelectContainer}>
+          <select onChange={(e) => dispatch(orderByName(e.target.value))} className={styles.selectContainer}>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
           </select>
-          <select onChange={(e) => dispatch(orderByPopulation(e.target.value))} className={styles.SelectContainer}>
+          <select onChange={(e) => dispatch(orderByPopulation(e.target.value))} className={styles.selectContainer}>
             <option value="high">Highest Population</option>
             <option value="low">Lowest Population</option>
           </select>
