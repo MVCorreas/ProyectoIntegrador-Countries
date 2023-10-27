@@ -13,6 +13,7 @@ export default function CreateActivity() {
     const activities = useSelector((state) => state.activities);
    // const [isValidated, setIsValidated] = useState(false);
    const [formSubmitted, setFormSubmitted] = useState(false);
+   const [isAnimated, setIsAnimated] = useState(false);
 
 
 
@@ -137,6 +138,10 @@ function validation(property, value) {
     setFormSubmitted(true);
     validation(property, value);
     setInput({ ...input, [property]: value });
+
+    if (property === 'difficulty') {
+        setIsAnimated(true);
+      }
 }
     
     //?FUNCION PARA TODOS LOS INPUT Y VALIDACION DE ERRORES
@@ -154,12 +159,14 @@ function validation(property, value) {
             // Set formSubmitted to true to trigger error messages
             setFormSubmitted(true);
             validation(property, selectedValue);
+            setIsAnimated(true);
         } else if (property === 'difficulty') {
             // You can convert the selectedValue to a number here if needed
             setInput({
                 ...input,
                 difficulty: parseInt(selectedValue), // Convert the value to a number
             });
+            setIsAnimated(true);
         } else if (property === 'countries') {
             if (selectedValue === 'SelectCountry') {
                 setErrors({ ...errors, countries: 'Choose one or more countries where the activity can be performed' });
@@ -174,6 +181,7 @@ function validation(property, value) {
     
             // Set formSubmitted to true to trigger error messages
             setFormSubmitted(true);
+            setIsAnimated(true);
         }
     }
     

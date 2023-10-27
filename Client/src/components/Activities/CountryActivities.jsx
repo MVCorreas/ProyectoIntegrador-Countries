@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styles from './CountryActivities.module.css';
-import buttons from '../../Styles/Buttons.module.css';
+
+import activitiesImage from '../../assets/TouristicActivities.jpeg'
 
 function CountryActivities() {
   const { id } = useParams();
@@ -34,6 +35,10 @@ function CountryActivities() {
   return (
   <div>
     <h1 className={styles.Title}>Touristic Activities in: {countryName}</h1>
+    <div className={styles.TouristicImage} >
+    <img  src={activitiesImage} className={styles.enterFromLeft}></img>
+    </div> 
+    
     <div className={styles.DetailCard}>
       {activities.length > 0 ? (
         <ul className={styles.content}>
@@ -58,8 +63,8 @@ function CountryActivities() {
         <p>No activities available for this country.</p>
       )}
        <Link to={`/detail/${id}/`}>
-        <button className={buttons.Button}>
-          <span className={buttons.ButtonSpan}>Back to {countryName}</span>
+        <button className={styles.Button}>
+          <span className={styles.ButtonSpan}>Back to {countryName}</span>
           </button>
     </Link>
     </div>
