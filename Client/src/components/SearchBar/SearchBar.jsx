@@ -7,6 +7,7 @@ import buttons from '../../Styles/Buttons.module.css';
 export default function SearchBar () {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
+    
 
   
    const handleChange = (e) => {
@@ -15,7 +16,7 @@ export default function SearchBar () {
 
     if (value === '') {
       // Si el input está vacío, traigo todos los países nuevamente
-      handleGetAllCountries();
+      handleReloadAllCountries();
     }
   };
 
@@ -29,7 +30,10 @@ export default function SearchBar () {
       dispatch(getDbCountries());
   };
 
-  function handleGetAllCountries() {
+  function handleReloadAllCountries() {
+    // Restablece los filtros a "AllContinents" y "AllActivities"
+    dispatch(filterCountriesByContinent('AllContinents'));
+    dispatch(filterByActivity('AllActivities'));
     dispatch(getDbCountries());
   }
     return (

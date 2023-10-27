@@ -41,5 +41,26 @@
     color: white;
     font-weight: 500;
   }
+
+  @media (max-width: 1024px) {
+   
+    .listStyles {
+      flex-direction: row; 
+      align-items: center; 
+      justify-content: space-around;
+      margin-top: -20%;
+    }
+  
+    .listItemStyles {
+      margin: 10px 5px; 
+      width: 10%; 
+      margin-top: 80px;
+     
+    }
+  
+    .activePage {
+      text-align: center; 
+    }
+  }
   
   

@@ -13,7 +13,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); //pagina principal
   const [order, setOrder] = useState('');
   const [countriesPerPage, setCountriesPerPage] = useState(10); //cantidad de cartas por pag
-  //const myFavorites = useSelector((state) => state.myFavorites);
+  // const filters = useSelector((state) => state.filters);
 
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
@@ -24,9 +24,42 @@ export default function Home() {
     dispatch(getDbCountries());
   }, []);
 
-  useEffect(() => {
-    setFilteredCountries(allCountries); // Inicialmente, todos los países están disponibles
-  }, [allCountries]);
+  // useEffect(() => {
+    // const filteredCountries = allCountries
+    // .filter((country) => {
+    //   if (filters.continent !== 'AllContinents' && country.continents !== filters.continent) {
+    //     return false;
+    //   }
+
+    //   if (filters.activity !== 'AllActivities' && !country.Activities.some((activity) => activity.type === filters.activity)) {
+    //     return false;
+    //   }
+
+    //   return true;
+    // })
+    
+    // .sort((a, b) => {
+    //   if (filters.orderByName === 'asc') {
+    //     return a.name.localeCompare(b.name);
+    //   } else {
+    //     return b.name.localeCompare(a.name);
+    //   }
+    // })
+    // .sort((a, b) => {
+    //   if (filters.orderByPopulation === 'low') {
+    //     return a.population - b.population;
+    //   } else {
+    //     return b.population - a.population;
+    //   }
+    // });
+
+//   setFilteredCountries(filteredCountries);
+// }, [allCountries, filters]);
+
+useEffect(() => {
+  setFilteredCountries(allCountries); // Inicialmente, todos los países están disponibles
+}, [allCountries]);
+
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
@@ -65,14 +98,7 @@ export default function Home() {
             <option value="Europe">Europe</option>
             <option value="Oceania">Oceania</option>
           </select>
-          <select onChange={(e) => dispatch(filterByActivity(e.target.value))} className={styles.selectContainer}>
-            <option value="AllActivities">All Activities</option>
-            <option value="City">City</option>
-            <option value="Country">Country</option>
-            <option value="Beach">Beach</option>
-            <option value="Forest">Forest</option>
-            <option value="Mountain">Mountain</option>
-          </select>
+         
           <select onChange={(e) => dispatch(orderByName(e.target.value))} className={styles.selectContainer}>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
@@ -80,6 +106,15 @@ export default function Home() {
           <select onChange={(e) => dispatch(orderByPopulation(e.target.value))} className={styles.selectContainer}>
             <option value="high">Highest Population</option>
             <option value="low">Lowest Population</option>
+          </select>
+
+          <select onChange={(e) => dispatch(filterByActivity(e.target.value))} className={styles.selectContainer}>
+            <option value="AllActivities">All Activities</option>
+            <option value="City">City</option>
+            <option value="Country">Country</option>
+            <option value="Beach">Beach</option>
+            <option value="Forest">Forest</option>
+            <option value="Mountain">Mountain</option>
           </select>
         </div>
         <Paginado

@@ -73,3 +73,23 @@
       color: inherit;
     }
   }
+
+  @media (max-width: 1024px) {
+    .container {
+      padding: 10px; 
+    }
+  
+    .HomeTitle {
+      font-size: 5rem; 
+      width: 100%; 
+      text-align: center;
+      margin: 0; 
+      height: 20%;
+
+    }
+  
+    .selectContainer {
+      width: 100%; 
+      margin-top: -10%;
+    }
+  }

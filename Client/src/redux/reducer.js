@@ -8,6 +8,12 @@ const initialState = {
     activities: [],
     currentPage: 1,
     totalPages: 1,
+    filters: {
+      continent: 'AllContinents',
+      activity: 'AllActivities',
+      orderByName: 'asc',
+      orderByPopulation: 'low',
+    },
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -25,12 +31,20 @@ const rootReducer = (state = initialState, action) => {
         const allCountries = state.allCountries;
         const continentFiltered = action.payload === 'AllContinents' ? allCountries : allCountries.filter((country) => country.continents === action.payload)
         return {...state, countries: continentFiltered};
+        // return {
+        //   ...state,
+        //   filters: { ...state.filters, continent: action.payload },
+        // };
 
       case FILTER_BY_ACTIVITY:
         const allCountryActivities = state.allCountries;
         const filteredActivity = action.payload === 'AllActivities' ? allCountryActivities : allCountryActivities.filter((country) =>
         country.Activities.some((activity) => activity.type === action.payload));
         return { ...state, countries: filteredActivity };
+        // return {
+        //   ...state,
+        //   filters: { ...state.filters, activity: action.payload },
+        // };
       
       case ORDER_BY_NAME:
         const sortedCountries = action.payload === 'asc'
@@ -39,12 +53,20 @@ const rootReducer = (state = initialState, action) => {
           
           console.log(state);
         return {...state, countries: sortedCountries};
+        // return {
+        //   ...state,
+        //   filters: { ...state.filters, orderByName: action.payload },
+        // };
       
       case ORDER_BY_POPULATION:
         const sortedPopulation = action.payload === 'low'
             ? state.countries.slice().sort((a, b) => a.population - b.population)
             : state.countries.slice().sort((a, b) => b.population - a.population);
         return {...state, countries: sortedPopulation};
+        // return {
+        //   ...state,
+        //   filters: { ...state.filters, orderByPopulation: action.payload },
+        // };
       
       case POST_ACTIVITY:
         const updatedActivities = [...state.activities, action.payload];

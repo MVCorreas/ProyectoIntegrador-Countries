@@ -258,11 +258,35 @@ textarea:hover {
     transform: translateX(var(--fill-size));
   }
 }
-
-
-
-
-
+@media (max-width: 1024px) {
+  
+  .selectForm {
+    max-width: 15rem; 
+  }
+  .Container {
+    width: 90%; 
+  }
+  .FormTitle {
+    width: 90%;
+    height: 10%;
+    margin-left: 50px;
+    font-size: 3rem;
+  }
+  .FormWrapper {
+  width: 80%; 
+    margin-left: 80px;
+  }
+  .SelectContainer {
+    max-width: 15rem; 
+  }
+  .inputForm,
+  textarea {
+    max-width: 20rem;
+  }
+  .Button {
+    margin-left: 25%;
+  }
+}
 
    
   

@@ -166,8 +166,48 @@
   top: 0;
 }
 
+@media (max-width: 1024px) {
+  .DetailCard {
+    display: flex;
+    flex-direction: row;
+    width: 90%; 
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box; 
+  }
 
+  .Title {
+    width: 100%; 
+    margin: 2rem 0; 
+  }
 
-        
+  .content {
+    width: 50%; 
+    margin-left: 0; 
+  }
 
+  .MainLabel {
+    text-align: center; 
+  }
 
+  .Label {
+    text-align: left; 
+    font-size: medium;
+  }
+
+  .progressContainer {
+    margin-top: 20px; 
+  }
+
+  .TouristicImage {
+    display: flex;
+    flex-direction: row;
+    width: 95%; 
+    margin: 20px;
+  }
+
+  .Button {
+    width: 100%; 
+    margin-left: 0; 
+  }
+}

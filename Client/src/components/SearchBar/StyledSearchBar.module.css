@@ -27,3 +27,14 @@
     margin-top: 20px;
     
   }
+
+  @media (max-width: 1024px) {
+   
+    .StyledSearch {
+      width: 90%; 
+    }
+  
+    .Input {
+      width: 70%;
+    }
+  }

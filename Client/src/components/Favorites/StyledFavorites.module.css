@@ -234,6 +234,36 @@
 	margin-top: 60px;
 }
  
+@media (max-width: 1024px) {
+	.neonText {
+	  font-size: 5em; 
+	  margin: 1rem 0; 
+	}
   
-
-
+	.FavSubtitle {
+	  font-size: 1.2rem;
+	  width: 80%; 
+	  margin-left: 10%;
+	}
+  
+	.FavoriteContainer {
+	  width: 100%; 
+	  margin: 20px auto; 
+	}
+  
+	.cardWrap {
+	  width: 45%; 
+	  margin: 1%; 
+	}
+  
+	.ButtonFav {
+	  font-size: 18px; 
+	  margin-left: 10px; 
+	}
+  
+	.NoFavMessage {
+	  font-size: 2rem; 
+	  width: 80%; 
+	  margin: 20px auto; 
+	}
+  }
