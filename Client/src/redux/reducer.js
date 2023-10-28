@@ -49,7 +49,7 @@ const rootReducer = (state = initialState, action) => {
       
       case ORDER_BY_NAME:
         const sortedCountries = action.payload === 'asc'
-            ? state.countries.slice().sort((a, b) => a.name.localeCompare(b.name))
+            ? state.countries.slice().sort((a, b) => a.name.localeCompare(b.name)) //?LOCALECOMPARE() metodo que compara strings y les asigna un valor para ordenarlos
             : state.countries.slice().sort((a, b) => b.name.localeCompare(a.name));
           
           console.log(state);

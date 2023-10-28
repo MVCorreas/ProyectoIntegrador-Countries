@@ -26,7 +26,7 @@ export default function CreateActivity() {
         season: '',
         countries: [],      
     });
-    console.log(input)
+    //console.log(input)
 
     const [errors, setErrors] = useState({
         name: '',
@@ -58,7 +58,7 @@ export default function CreateActivity() {
     // }
 
 
-//?VALIDATION 
+//?INDIVUAL VALIDATION 
 
 function validation(property, value) {
     switch (property) {
@@ -178,11 +178,13 @@ function validateForm() {
     }
 
     setErrors(fieldErrors);
+    console.log('validateForm', fieldErrors);
 
     // Devuelve true si no hay errores, de lo contrario, devuelve false
     return Object.values(fieldErrors).every((error) => error === '');
 }
-   
+
+//? FUCNION PARA VALIDAR LOS CAMBIOS DE INPUT
     function handleChange (e) {
         const property = e.target.name;
         const value = e.target.value;
@@ -196,9 +198,8 @@ function validateForm() {
       }
 }
     
-    //?FUNCION PARA TODOS LOS INPUT Y VALIDACION DE ERRORES
+//?FUNCION PARA TODOS LOS SELECT Y VALIDACION DE ERRORES
    
-
     function handleSelect(e) {
         const selectedValue = e.target.value;
         const property = e.target.name;
@@ -248,6 +249,7 @@ function validateForm() {
 
     //?SUBMIT BUTTON
     const handleSubmit = async (e) => {
+        console.log('handleSubmit is called');
         e.preventDefault();
 
         // Llama a validateForm para verificar si hay errores
