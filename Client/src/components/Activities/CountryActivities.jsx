@@ -43,7 +43,7 @@ function CountryActivities() {
       {activities.length > 0 ? (
         <ul className={styles.content}>
           {activities.map((activity, index) => (
-            <p key={index}>
+            <div key={index}>
               <h3 className={styles.MainLabel}>{activity.name}</h3> 
               <h4 className={styles.Label}>Type:</h4> {activity.type}<br />
               <h4 className={styles.Label}>Description:</h4> {activity.description}<br />
@@ -56,7 +56,7 @@ function CountryActivities() {
 
               <h4 className={styles.Label}>Duration:</h4> {activity.duration}<br />
               <h4 className={styles.Label}>Season:</h4> {activity.season}
-            </p>
+            </div>
           ))}
         </ul>
       ) : (

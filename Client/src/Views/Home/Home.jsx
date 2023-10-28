@@ -11,9 +11,11 @@ export default function Home() {
   const allCountries = useSelector((state) => state.countries);
   const [filteredCountries, setFilteredCountries] = useState(allCountries); // Estado para almacenar los países filtrados
   const [currentPage, setCurrentPage] = useState(1); //pagina principal
-  const [order, setOrder] = useState('');
+  // const [order, setOrder] = useState('asc');
   const [countriesPerPage, setCountriesPerPage] = useState(10); //cantidad de cartas por pag
-  // const filters = useSelector((state) => state.filters);
+  const filters = useSelector((state) => state.filters);
+ 
+
 
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
@@ -24,46 +26,45 @@ export default function Home() {
     dispatch(getDbCountries());
   }, []);
 
+
+  //!FILTERS COMBINADOS PERO SIN A-Z
   // useEffect(() => {
-    // const filteredCountries = allCountries
-    // .filter((country) => {
-    //   if (filters.continent !== 'AllContinents' && country.continents !== filters.continent) {
-    //     return false;
-    //   }
-
-    //   if (filters.activity !== 'AllActivities' && !country.Activities.some((activity) => activity.type === filters.activity)) {
-    //     return false;
-    //   }
-
-    //   return true;
-    // })
-    
-    // .sort((a, b) => {
-    //   if (filters.orderByName === 'asc') {
-    //     return a.name.localeCompare(b.name);
-    //   } else {
-    //     return b.name.localeCompare(a.name);
-    //   }
-    // })
-    // .sort((a, b) => {
-    //   if (filters.orderByPopulation === 'low') {
-    //     return a.population - b.population;
-    //   } else {
-    //     return b.population - a.population;
-    //   }
-    // });
-
-//   setFilteredCountries(filteredCountries);
-// }, [allCountries, filters]);
-
+  //   const filteredCountries = allCountries
+  //     .filter((country) => {
+  //       if (filters.continent !== 'AllContinents' && country.continents !== filters.continent) {
+  //         return false;
+  //       }
+  
+  //       if (filters.activity !== 'AllActivities' && !country.Activities.some((activity) => activity.type === filters.activity)) {
+  //         return false;
+  //       }
+  
+  //       return true;
+  //     })
+  //     .sort((a, b) => {
+  //       if (filters.orderByName === 'asc' || filters.population === 'high') {
+  //         // Ordena por nombre ascendente (A-Z), luego por población ascendente
+  //         return a.name.localeCompare(b.name) || a.population.localeCompare(b.population);
+  //       } else {
+  //         // Ordena por nombre descendente (Z-A), luego por población descendente
+  //         return b.name.localeCompare(a.name) || b.population.localeCompare(a.population);
+  //       }
+  //     });
+  
+  //   setFilteredCountries(filteredCountries);
+  // }, [allCountries, filters]);
+  
+//!FILTERS SIN ACTIVITY
 useEffect(() => {
-  setFilteredCountries(allCountries); // Inicialmente, todos los países están disponibles
-}, [allCountries]);
+  
+  setFilteredCountries(allCountries); // Inicialmente, todos los países están disponibles, si lo comento, no funciona el reload
+}, [allCountries, filters]);
 
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
   };
+  
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);

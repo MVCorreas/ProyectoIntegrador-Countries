@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import { useDispatch } from 'react-redux';
 import { getCountryName, getDbCountries } from '../../redux/actions';
 import styles from './StyledSearchBar.module.css';
@@ -7,6 +7,7 @@ import buttons from '../../Styles/Buttons.module.css';
 export default function SearchBar () {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
+    const inputRef = useRef(null);
     
 
   
@@ -15,7 +16,7 @@ export default function SearchBar () {
     setName(value);
 
     if (value === '') {
-      // Si el input está vacío, traigo todos los países nuevamente
+      // Si el input está vacío, traigo todos los países nuevamente 
       handleReloadAllCountries();
     }
   };
@@ -28,13 +29,12 @@ export default function SearchBar () {
     function handleClick(e) {
       e.preventDefault();
       dispatch(getDbCountries());
+    
   };
 
   function handleReloadAllCountries() {
-    // Restablece los filtros a "AllContinents" y "AllActivities"
-    dispatch(filterCountriesByContinent('AllContinents'));
-    dispatch(filterByActivity('AllActivities'));
     dispatch(getDbCountries());
+     
   }
     return (
         <div className={styles.StyledSearchContainer}>

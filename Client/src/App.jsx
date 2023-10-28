@@ -1,22 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react'
-// import { useDispatch, useSelector } from 'react-redux';
-// import axios from 'axios';
 import './App.css';
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import Landing from '../src/Views/Landing/Landing';
 import CountryActivities from './components/Activities/CountryActivities';
 import NavBar from './components/NavBar/NavBar';
-// import SearchBar from './components/SearchBar/SearchBar';
-// import About from './Views/About/About';
 import Detail from './Views/Detail/Detail';
 import Home from './Views/Home/Home';
-// import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-//import { useAuth } from './hooks/useAuth';
-//import video from './assets/BGVideo.mp4';
 import CreateActivity from './components/CreateActivity/CreateActivity';
 
 import BGImage from './assets/GloboLibros.jpeg';
-// import DetailImage from './assets/GreenGlobe.jpeg';
 import Favorites from './components/Favorites/Favorites';
 
 

@@ -129,7 +129,59 @@ function validation(property, value) {
             break;
     }
 }
+//?FUNCTION TO VALIDATE THE ENTIRE FORM AND SHOW ALL MESSAGES ON SUBMIT
 
+function validateForm() {
+    const fieldErrors = {
+        name: '',
+        type: '',
+        description: '',
+        difficulty: '',
+        duration: '',
+        season: '',
+        countries: [],
+    };
+
+    // Realiza las validaciones de todos los campos
+    if (!input.name) {
+        fieldErrors.name = 'Please, enter a name for the activity';
+    } else if (input.name.length > 50) {
+        fieldErrors.name = 'The name should not exceed 50 characters';
+    } else if (activities && activities.some((activity) => activity.name.toLowerCase() === input.name.toLowerCase())) {
+        fieldErrors.name = 'The activity name is already in use';
+    }
+
+    if (!input.description) {
+        fieldErrors.description = 'Please, enter a description for the activity';
+    } else if (input.description.length > 200) {
+        fieldErrors.description = 'The description should not exceed 200 characters';
+    }
+
+    if (!input.difficulty) {
+        fieldErrors.difficulty = 'Please, choose one option from 1 (lowest) to 5 (highest)';
+    }
+
+    if (!input.type) {
+        fieldErrors.type = 'Please, select a type of activity';
+    }
+
+    if (!input.season) {
+        fieldErrors.season = 'Please, select a season';
+    }
+
+    if (input.duration === '') {
+        fieldErrors.duration = 'Please, choose an approximate duration for the activity';
+    }
+
+    if (input.countries.length === 0) {
+        fieldErrors.countries = 'Choose one or more countries where the activity can be performed';
+    }
+
+    setErrors(fieldErrors);
+
+    // Devuelve true si no hay errores, de lo contrario, devuelve false
+    return Object.values(fieldErrors).every((error) => error === '');
+}
    
     function handleChange (e) {
         const property = e.target.name;
@@ -151,40 +203,39 @@ function validation(property, value) {
         const selectedValue = e.target.value;
         const property = e.target.name;
     
+        // Limpiar el mensaje de error actual para el campo
+        setErrors({ ...errors, [property]: '' });
+        
         if (property === 'season' || property === 'type') {
             setInput({
                 ...input,
                 [property]: selectedValue,
             });
-            // Set formSubmitted to true to trigger error messages
-            setFormSubmitted(true);
-            validation(property, selectedValue);
             setIsAnimated(true);
         } else if (property === 'difficulty') {
-            // You can convert the selectedValue to a number here if needed
+            // Puedes convertir selectedValue a un número aquí si es necesario
             setInput({
                 ...input,
-                difficulty: parseInt(selectedValue), // Convert the value to a number
+                difficulty: parseInt(selectedValue), // Convertir el valor a número
             });
             setIsAnimated(true);
         } else if (property === 'countries') {
             if (selectedValue === 'SelectCountry') {
+                // Setear un mensaje de error si se selecciona "SelectCountry"
                 setErrors({ ...errors, countries: 'Choose one or more countries where the activity can be performed' });
             } else {
-                // Clear the error message and add the selected country
+                // Limpiar el mensaje de error y agregar el país seleccionado
                 setErrors({ ...errors, countries: '' });
                 setInput({
                     ...input,
                     countries: [...input.countries, selectedValue],
                 });
             }
-    
-            // Set formSubmitted to true to trigger error messages
-            setFormSubmitted(true);
-            setIsAnimated(true);
         }
-    }
     
+        // Establecer formSubmitted en true para activar los mensajes de error si es necesario
+        setFormSubmitted(true);
+    }
     
 
     //?DELETE SELECTED COUNTRY
@@ -198,60 +249,51 @@ function validation(property, value) {
     //?SUBMIT BUTTON
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Realiza la validación de los campos aquí (manejo de errores)...
-        if (input.countries.length === 0) {
-            setErrors({ ...errors, countries: 'Choose one or more countries where the activity can be performed' });
-            setFormSubmitted(true);
-            return; 
-        }
-    
-        // Luego, crea el objeto 'activity' con los datos del formulario:
-        const activity = {
-            name: input.name,
-            type: input.type,
-            description: input.description,
-            difficulty: input.difficulty,
-            duration: input.duration,
-            season: input.season,
-            countries: input.countries,
-        };
-    
-       
-        // dispatch(postActivity(activity));
-    
-      
-        try {
-            const response = await axios.post('http://localhost:3001/activities', activity, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            console.log(response);
-            if (response.status === 201) {
-                
-                setInput({
-                    name: '',
-                    type: '',
-                    description: '',
-                    difficulty: 1,
-                    duration: '',
-                    season: '',
-                    countries: [],
+
+        // Llama a validateForm para verificar si hay errores
+        const isFormValid = validateForm();
+
+        if (isFormValid) {
+            // Crea el objeto 'activity' y realiza la acción de envío
+            const activity = {
+                name: input.name,
+                type: input.type,
+                description: input.description,
+                difficulty: input.difficulty,
+                duration: input.duration,
+                season: input.season,
+                countries: input.countries,
+            };
+
+            try {
+                const response = await axios.post('http://localhost:3001/activities', activity, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                 });
-    
-                alert('Activity created successfully');
-                navigate('/home');
-            } else {
-               
-                console.error('Error in the activity POST', response);
-                alert('Please, complete all fields before submitting the form');
+
+                if (response.status === 201) {
+                    setInput({
+                        name: '',
+                        type: '',
+                        description: '',
+                        difficulty: 1,
+                        duration: '',
+                        season: '',
+                        countries: [],
+                    });
+
+                    alert('Activity created successfully');
+                    navigate('/home');
+                } else {
+                    console.error('Error in the activity POST', response);
+                    alert('Please, complete all fields before submitting the form');
+                }
+            } catch (error) {
+                console.error('Error in the POST request', error);
             }
-        } catch (error) {
-           
-            console.error('Error in the POST request', error);
         }
     };
-    
 
     return (
         <div>
@@ -347,13 +389,14 @@ function validation(property, value) {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
+                {formSubmitted && errors.difficulty && (
+                    <span className={styles.StyledErrors}>{errors.difficulty}</span>
+                )}
                 <div className={styles.progressContainer}>
                 <div className={styles.progressBar} style={{ width: `${input.difficulty * 20}%` }} >
                 </div>
                 </div>
-                {formSubmitted && errors.difficulty && (
-                    <span className={styles.StyledErrors}>{errors.difficulty}</span>
-                )}
+                
                 </div>
                                 
               <div className={styles.labelForm}>
