@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize'); //Importamos el objeto de Sequelize que nos permitirá establecer tipos de datos
 
 module.exports = (sequelize) => {
-  // defino el modelo
+  // defino el modelo, el cual crea una tabla en la BDD
   sequelize.define('Activity', {
     id: {
       type: DataTypes.INTEGER, 
@@ -48,5 +48,5 @@ module.exports = (sequelize) => {
     //     allowNull: false,
     //     defaultValue: true
     // }
-}, { timestamps: false });
+}, { timestamps: false }); //Evito que se agreguen automáticamente campos de registro de tiempo (como "createdAt" y "updatedAt") a la tabla de la BDD.
 }

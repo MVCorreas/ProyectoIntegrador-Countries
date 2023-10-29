@@ -34,6 +34,12 @@ export default function SearchBar () {
 
   function handleReloadAllCountries() {
     dispatch(getDbCountries());
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === 'Enter') {
+      handleSubmit(e);
+    }
      
   }
     return (
@@ -44,6 +50,7 @@ export default function SearchBar () {
               type='search'
               placeholder='Find a country...'
               onChange={handleChange}
+              onKeyDown={handleKeyDown}
             />
             
               <button className={buttons.Button} onClick={(e) => handleSubmit(e)}>

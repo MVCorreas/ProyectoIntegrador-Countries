@@ -28,37 +28,37 @@ export default function Home() {
 
 
   //!FILTERS COMBINADOS PERO SIN A-Z
-  // useEffect(() => {
-  //   const filteredCountries = allCountries
-  //     .filter((country) => {
-  //       if (filters.continent !== 'AllContinents' && country.continents !== filters.continent) {
-  //         return false;
-  //       }
+  useEffect(() => {
+    const filteredCountries = allCountries
+      .filter((country) => {
+        if (filters.continent !== 'AllContinents' && country.continents !== filters.continent) {
+          return false;
+        }
   
-  //       if (filters.activity !== 'AllActivities' && !country.Activities.some((activity) => activity.type === filters.activity)) {
-  //         return false;
-  //       }
+        if (filters.activity !== 'AllActivities' && !country.Activities.some((activity) => activity.type === filters.activity)) {
+          return false;
+        }
   
-  //       return true;
-  //     })
-  //     .sort((a, b) => {
-  //       if (filters.orderByName === 'asc' || filters.population === 'high') {
-  //         // Ordena por nombre ascendente (A-Z), luego por población ascendente
-  //         return a.name.localeCompare(b.name) || a.population.localeCompare(b.population);
-  //       } else {
-  //         // Ordena por nombre descendente (Z-A), luego por población descendente
-  //         return b.name.localeCompare(a.name) || b.population.localeCompare(a.population);
-  //       }
-  //     });
+        return true;
+      })
+      .sort((a, b) => {
+        if (filters.orderByName === 'asc' || filters.orderByPopulation === 'high') {
+          // Ordena por nombre ascendente (A-Z), luego por población ascendente
+          return a.name.localeCompare(b.name) || a.population.localeCompare(b.population);
+        } else {
+          // Ordena por nombre descendente (Z-A), luego por población descendente
+          return b.name.localeCompare(a.name) || b.population.localeCompare(a.population);
+        }
+      });
   
-  //   setFilteredCountries(filteredCountries);
-  // }, [allCountries, filters]);
+    setFilteredCountries(filteredCountries);
+  }, [allCountries, filters]);
   
 //!FILTERS SIN ACTIVITY
-useEffect(() => {
+// useEffect(() => {
   
-  setFilteredCountries(allCountries); // Inicialmente, todos los países están disponibles, si lo comento, no funciona el reload
-}, [allCountries, filters]);
+//   setFilteredCountries(allCountries); // Inicialmente, todos los países están disponibles, si lo comento, no funciona el reload
+// }, [allCountries, filters]);
 
 
   const handleFilterChange = (e) => {

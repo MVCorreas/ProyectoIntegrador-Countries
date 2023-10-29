@@ -1,6 +1,8 @@
-//?CREAMOS Y DEFINIMOS LAS RUTAS  
+//?CREAMOS Y DEFINIMOS LOS CONTROLLERS Y LAS RUTAS
 
-const { Router } = require("express");
+const { Router } = require("express"); //Módulo de express para crear y gestionr rutas
+
+//Importación de controllers
 const getApiData = require('../Store/data');
 const getCountries = require("../controllers/getCountries");
 const getCountryById = require("../controllers/getCountryById");
@@ -11,8 +13,9 @@ const getActivitiesForCountry = require('../controllers/getActivityForCountry');
 const postFavorites = require('../controllers/postFavorites');
 const deleteFavorite = require('../controllers/deleteFavorite');
 
-const router = Router();
+const router = Router(); //Creamos un enrutador o instancia de Router llamada router
 
+//Definición de rutas
 router.get("/login", login);
 router.get("/store", getApiData)
 router.get("/countries", getCountries);

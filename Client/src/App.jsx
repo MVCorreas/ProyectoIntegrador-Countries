@@ -1,3 +1,5 @@
+//?COMPONENTE RAIZ DE LA APP
+
 import React, { useState, useEffect, useRef } from 'react'
 import './App.css';
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
@@ -23,8 +25,8 @@ const App = () => {
     setAccess(false);
     // Reiniciar la página para que el usuario pueda volver a ingresar sus credenciales. y asi no queden cargadas tarjetas agregadas antes de desloguearse.
     !access && navigate("/");
-    alert("¡See you!");
-    window.location.reload();
+    alert("¡See you!"); //! Por qué no aparece?
+    //window.location.reload(); //fx que recarga la pagina y borra los cambios que hayan hecho
   };
   
   if (location.pathname !== '/') {

@@ -1,13 +1,15 @@
+//?PETICION Y GUARDADO DE INFO EN BDD
+
 const axios = require('axios');
 const { Country } = require('../db.js');
 
 const getApiData = async (req, res) => {
     try {
-        const apiData = await axios.get('http://localhost:5000/countries');
+        const apiData = await axios.get('http://localhost:5000/countries'); //Petición a una api para obtener datos
    
-    const apiFilter = await apiData.data.map(country => { //countries o data??
+    const apiFilter = await apiData.data.map(country => { 
         return {
-            id: country.cca3 !== undefined ? country.cca3 : ('No ID for display'), //sin parentesis??
+            id: country.cca3 !== undefined ? country.cca3 : ('No ID for display'),
             name: country.name.common,
             flag: country.flags.png,
             continents: country.region,
@@ -19,10 +21,10 @@ const getApiData = async (req, res) => {
       });
       //console.log(apiFilter);
 
-      await Country.bulkCreate(apiFilter); 
+      await Country.bulkCreate(apiFilter); //Almacenamiento de datos en la tabla Country de la BDD - Bulkcreate inserta muchos registros simultáneamente
       //console.log('Data stored successfully');
 
-      res.status(200).json({message: 'Data stored successfully'});
+      res.status(200).json({message: 'Data stored successfully'});//Respuesta HTTP al cliente
       
     
     } catch (error) {

@@ -1,3 +1,5 @@
+//?BUSQUEDA DE ACTIVIDADES RELACIONADAS A UN PAIS
+
 const axios = require('axios');
 const { Country, Activity } = require('../db');
 

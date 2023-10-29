@@ -1,14 +1,17 @@
-//!TESTING: Comennto process.env
+//!TESTING: Comento process.env
 
-//?CREAMOS LA BDD
+//?CONFIGURAR Y ESTABLECER CONEXION CON LA BDD POSTGRES MEDIANTE SEQUELIZE (UN ORM DE NODE)
+//?ORM --> Object Relational Mapping: tecnica de programacion que mapea objetos de un sist de programacion orientado a objetos (eg. JAVASCRIPT), a estructuras de datos (eg. SQL)
 
-require("dotenv").config();
-const { Sequelize } = require("sequelize");
+
+//?CONFIGURACION DE LA BDD
+require("dotenv").config(); //Carga las variables de entorno de .env
+const { Sequelize } = require("sequelize"); //Crea instancia de Sequelize
 
 
 const fs = require('fs');
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env; //Emplea las variables de entonrno para config la URL de conexion
 
 //process.env.DB_HOST = 'localhost';
 console.log(process.env.DB_HOST);
@@ -34,7 +37,7 @@ fs.readdirSync(path.join(__dirname, '/models'))
   });
 
 
-modelDefiners.forEach(model => model(sequelize));
+modelDefiners.forEach(model => model(sequelize)); //Cada modelo definido se agrega a la isntancia de sequelize
 
 let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);

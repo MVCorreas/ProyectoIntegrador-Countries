@@ -1,3 +1,5 @@
+//?OBTENCION DE INFO DE PAISES POR NOMBRE
+
 const axios = require('axios');
 const express = require('express');
 const { Op } = require('sequelize');
@@ -5,7 +7,7 @@ const { Activity, Country } = require('../db');
 
 const getCountries = async (req, res) => {
     try {
-        const { name } = req.query;
+        const { name } = req.query; //parámentro de consulta por nombre
         let countries;
 
         if (name) {
@@ -13,7 +15,7 @@ const getCountries = async (req, res) => {
                 attributes: ['id', 'name', 'flag', 'continents', 'capital', 'subregion', 'area', 'population'],
                 where: {
                     name: {
-                        [Op.iLike]: `%${name}%`
+                        [Op.iLike]: `%${name}%` //Operador de sequelize q busca datos que coincidan parcialmente con el name, may y minusculas
                     }
                 },
                 include: {
@@ -24,6 +26,9 @@ const getCountries = async (req, res) => {
                     }
                 }
             });
+            if (countries.length === 0) {
+                return res.status(404).json({ error: 'The country does not exist in the database' });
+            }
         } else {
             
             countries = await Country.findAll({
