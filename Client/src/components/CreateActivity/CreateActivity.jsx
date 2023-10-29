@@ -249,13 +249,11 @@ function validateForm() {
 
     //?SUBMIT BUTTON
     const handleSubmit = async (e) => {
-        console.log('handleSubmit is called');
+       // console.log('handleSubmit is called');
         e.preventDefault();
 
         // Llama a validateForm para verificar si hay errores
-        const isFormValid = validateForm();
-
-        if (isFormValid) {
+       validateForm();
             // Crea el objeto 'activity' y realiza la acción de envío
             const activity = {
                 name: input.name,
@@ -294,7 +292,7 @@ function validateForm() {
             } catch (error) {
                 console.error('Error in the POST request', error);
             }
-        }
+        
     };
 
     return (
