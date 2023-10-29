@@ -26,7 +26,7 @@ const App = () => {
     // Reiniciar la página para que el usuario pueda volver a ingresar sus credenciales. y asi no queden cargadas tarjetas agregadas antes de desloguearse.
     !access && navigate("/");
     alert("¡See you!"); //! Por qué no aparece?
-    //window.location.reload(); //fx que recarga la pagina y borra los cambios que hayan hecho
+    window.location.reload(); //fx que recarga la pagina y borra los cambios que hayan hecho
   };
   
   if (location.pathname !== '/') {

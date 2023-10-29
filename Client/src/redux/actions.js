@@ -13,6 +13,7 @@ export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const ADD_FAV = 'ADD_FAV';
 export const REMOVE_FAV = 'REMOVE_FAV';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+
 // export const LOGOUT = "LOGOUT";
 
 
@@ -96,6 +97,7 @@ export function orderByPopulation (payload) {
         payload
     }
 };
+
 
 //? COUNTRY DETAIL
 export const getCountryDetail = (id) => {
