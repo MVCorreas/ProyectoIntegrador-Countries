@@ -24,20 +24,21 @@ export default function SearchBar ({onReload}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     // Buscar si el nombre ingresado está incluido en el nombre de algún país
     const foundCountries = countries.filter((country) =>
       country.name.toLowerCase().includes(name.toLowerCase())
     );
-
+  
     if (foundCountries.length > 0) {
       // Si se encuentran países que coinciden, realizar la acción correspondiente
-      foundCountries.forEach((country) => dispatch(getCountryName(country.name)));
+      dispatch(getCountryName(foundCountries.map((country) => country.name)));
     } else {
       // Si no se encuentra ningún país que coincida, mostrar una alerta
       alert('Country not found');
     }
   };
+  
 
   function handleReloadAllCountries() {
     onReload(); // Llamo a la función para restablecer los filtros

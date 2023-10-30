@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_DB_COUNTRIES = "GET_DB_COUNTRIES";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const GET_COUNTRY_BY_NAME = "GET_COUNTRY_BY_NAME";
+export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
@@ -68,6 +69,22 @@ export function getCountryName(name) {
         
     }   
 };
+
+//? SEARCH BY ID - SEARCHBAR
+// export function getCountryID(id) {
+//     return async function (dispatch) {
+//         try {
+//             var json = await axios.get('http://localhost:3001/countries/'+ id);
+//         return dispatch({
+//              type: 'GET_COUNTRY_BY_ID',
+//              payload: json.data
+//         })
+//         } catch (error) {
+//             console.log(error)
+//         }
+        
+//     }   
+// };
 
 //? FILTERS
 export function filterCountriesByContinent (payload) { //Payload=value del input
