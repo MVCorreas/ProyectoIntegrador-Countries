@@ -22,15 +22,11 @@ export default function SearchBar ({onReload}) {
    
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const response = await dispatch(getCountryName(name));
-    if (response.error) {
-      // Si la acción devuelve un error, muestra la alerta
-      alert('Country not found');
-    }
-  };
-  
+    dispatch(getCountryName(name));
+   
+};
 
   function handleReloadAllCountries() {
     onReload(); // Llamo a la función para restablecer los filtros
