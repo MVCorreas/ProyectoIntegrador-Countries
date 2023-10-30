@@ -22,19 +22,11 @@ export default function SearchBar ({onReload}) {
    
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Buscar si el nombre ingresado está incluido en el nombre de algún país
-    const foundCountries = countries.filter((country) =>
-      country.name.toLowerCase().includes(name.toLowerCase())
-    );
-  
-    if (foundCountries.length > 0) {
-      // Si se encuentran países que coinciden, realizar la acción correspondiente
-      dispatch(getCountryName(foundCountries.map((country) => country.name)));
-    } else {
-      // Si no se encuentra ningún país que coincida, mostrar una alerta
+    const response = await dispatch(getCountryName(name));
+    if (response.error) {
+      // Si la acción devuelve un error, muestra la alerta
       alert('Country not found');
     }
   };
