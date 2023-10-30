@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDbCountries, filterCountriesByContinent, filterByActivity, orderByName, orderByPopulation } from '../../redux/actions';
 import Card from '../../components/Card/Card';
@@ -11,28 +12,27 @@ export default function Home() {
   const allCountries = useSelector((state) => state.countries);
   const [filteredCountries, setFilteredCountries] = useState(allCountries); // Estado para almacenar los países filtrados
   const [currentPage, setCurrentPage] = useState(1); //pagina principal
-  // const [order, setOrder] = useState('asc');
   const [countriesPerPage, setCountriesPerPage] = useState(10); //cantidad de cartas por pag
   const filters = useSelector((state) => state.filters);
-  const countries = useSelector((state) => state.countries);
-  const [populationOrder, setPopulationOrder] = useState('null');
-  const [nameOrder, setNameOrder] = useState('null');
-  const [activityFilter, setActivityFilter] = useState('AllActivities');
-  const [continentFilter, setContinentFilter] = useState('AllContinents');
- 
-
+  const navigate = useNavigate();
 
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
   const currentCountries = filteredCountries.slice(indexOfFirstCountry, indexOfLastCountry);
-  const [filter, setFilter] = useState('All'); 
+
+  const [currentFilters, setCurrentFilters] = useState({
+    continent: 'AllContinents',
+    orderByName: 'null',
+    orderByPopulation: 'null',
+    activity: 'AllActivities',
+  });
 
   useEffect(() => {
     dispatch(getDbCountries());
   }, []);
 
 
-  //!FILTERS COMBINADOS PERO SIN A-Z
+  //!FILTERS COMBINADOS 
   useEffect(() => {
     const filteredCountries = allCountries
       .filter((country) => {
@@ -45,65 +45,30 @@ export default function Home() {
         }
   
         return true;
-      })
-      // .sort((a, b) => {
-      //   if (filters.orderByName === 'asc' || filters.orderByPopulation === 'high') {
-      //     // Ordena por nombre ascendente (A-Z), luego por población ascendente
-      //     return a.name.localeCompare(b.name) || a.population.localeCompare(b.population);
-      //   } else {
-      //     // Ordena por nombre descendente (Z-A), luego por población descendente
-      //     return b.name.localeCompare(a.name) || b.population.localeCompare(a.population);
-      //   }
-      // });
+      });
   
+    // Actualiza los filtros y la lista de países filtrados en el mismo lugar
     setFilteredCountries(filteredCountries);
+    setCurrentFilters(filters);
   }, [allCountries, filters]);
-
-  //!LUKI
-  // const handleContinentChange = (e) => {
-  //   const selectedContinent = e.target.value;
-  //   dispatch(filterCountriesByContinent(selectedContinent));
-  //   // Reiniciar los ordenamientos
-  //   setContinentFilter(selectedContinent);
-  //   // setActivityFilter('AllActivities');
-   
-  // };
-
-  // const handleActivityChange = (e) => {
-  //   const selectedActivity = e.target.value;
-  //   dispatch(filterByActivity(selectedActivity));
-  //   setActivityFilter(selectedActivity);
-  // };
-
-  // const handleOrderByNameChange = (e) => {
-  //   const selectedOrderByName = e.target.value;
-  //   dispatch(orderByName(selectedOrderByName));
-  //   // Desactivar el ordenamiento por población
-  //   setNameOrder(selectedOrderByName)
-  //   setPopulationOrder(null)
-  // };
-
-  // const handleOrderByPopulationChange = (e) => {
-  //   const selectedOrderByPopulation = e.target.value;
-  //   dispatch(orderByPopulation(selectedOrderByPopulation));
-  //   // Desactivar el ordenamiento por nombre
-  //   setPopulationOrder(selectedOrderByPopulation)
-  //   setNameOrder(null)
-  // };
   
 
-//!FILTERS SIN ACTIVITY
-// useEffect(() => {
-  
-//   setFilteredCountries(allCountries); // Inicialmente, todos los países están disponibles, si lo comento, no funciona el reload
-// }, [allCountries, filters]);
+  const handleReloadFilters = () => {
+    // Restablece los filtros a sus valores por defecto
+    dispatch(filterCountriesByContinent('AllContinents'));
+    dispatch(orderByName('null'));
+    dispatch(orderByPopulation('null'));
+    dispatch(filterByActivity('AllActivities'));
 
-
-  const handleFilterChange = (e) => {
-    setFilter(e.target.value);
+    // Restablece los valores de los selectores a sus valores por defecto
+    setCurrentFilters({
+      continent: 'AllContinents',
+      orderByName: 'null',
+      orderByPopulation: 'null',
+      activity: 'AllActivities',
+    });
   };
   
-
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -111,22 +76,13 @@ export default function Home() {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
-
-  // const handleFavorites = allCountries.filter((country) => {
-  //   if (filter === 'Favorites') {
-  //     return myFavorites.some((fav) => fav.id === country.id);
-  //   } else if (filter === 'NotFavorites') {
-  //     return !myFavorites.some((fav) => fav.id === country.id);
-  //   }
-  //   return true;
-  // });
   
 
   return (
     <div>
       <div className={styles.container}>
         <h1 className={styles.HomeTitle}>COUNTRYPEDIA</h1>
-        <SearchBar />
+        <SearchBar onReload={handleReloadFilters} selectValues={currentFilters}/>
         <div className={styles.FilterContainer}>
           <select onChange={(e) => dispatch(filterCountriesByContinent(e.target.value))}  className={styles.selectContainer}>
             <option value="AllContinents">All Countries</option>
@@ -139,12 +95,12 @@ export default function Home() {
           </select>
          
           <select onChange={(e) => dispatch(orderByName(e.target.value))} className={styles.selectContainer}>
-           <option value="null">None</option>
+           <option value="null">Order by Name</option>
             <option value="asc">A-Z</option>
             <option value="desc">Z-A</option>
           </select>
           <select onChange={(e) => dispatch(orderByPopulation(e.target.value))} className={styles.selectContainer}>
-            <option value="null">None</option>
+            <option value="null">Order by Population</option>
             <option value="high">Highest Population</option>
             <option value="low">Lowest Population</option>
           </select>
