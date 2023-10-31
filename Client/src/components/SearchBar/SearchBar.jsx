@@ -18,9 +18,19 @@ export default function SearchBar ({onReload}) {
     if (value === '') {
       // Si el input está vacío, traigo todos los países nuevamente 
       handleReloadAllCountries();
+    } else {
+      const idRegex = /^[A-Z]{3}$/; // A regular expression to match 3-letter IDs
+
+      if (idRegex.test(value)) {
+        // If the input matches the 3-letter ID pattern, search by ID
+        dispatch(getCountryID(value));
+      } else {
+        // Otherwise, search by name
+        dispatch(getCountryName(value));
+      }
     }
-   
   };
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();

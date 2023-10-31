@@ -123,12 +123,13 @@ export default function Home() {
             onPageChange={handlePageChange}
           />
 
-      
-          {currentCountries.map((country) => (
-            <Card key={country.id} id={country.id} name={country.name} flag={country.flag} continents={country.continents} activities={country.Activities}/>
-          ))}
-      
-        
+        {currentCountries.length === 0 ? (
+          <p className={styles.NoCountriesMessage}>No countries found for the selected activity.</p>
+        ) : (
+          currentCountries.map((country) => (
+            <Card key={country.id} id={country.id} name={country.name} flag={country.flag} continents={country.continents} activities={country.Activities} />
+          ))
+        )}
       </div>
     </div>
   );

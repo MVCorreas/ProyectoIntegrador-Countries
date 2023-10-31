@@ -9,6 +9,7 @@ export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const POST_ACTIVITY = "POST_ACTIVITY";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const GET_COUNTRY_DETAIL = "GET_COUNTRY_DETAIL";
 export const CLEAN_DETAIL = "CLEAN_DETAIL";
 export const ADD_FAV = 'ADD_FAV';
@@ -53,6 +54,7 @@ export function postActivity(payload) {
        }) 
     }
 };
+  
 
 //? SEARCH BY NAME - SEARCHBAR
 export function getCountryName(name) {
@@ -71,20 +73,20 @@ export function getCountryName(name) {
 };
 
 //? SEARCH BY ID - SEARCHBAR
-// export function getCountryID(id) {
-//     return async function (dispatch) {
-//         try {
-//             var json = await axios.get('http://localhost:3001/countries/'+ id);
-//         return dispatch({
-//              type: 'GET_COUNTRY_BY_ID',
-//              payload: json.data
-//         })
-//         } catch (error) {
-//             console.log(error)
-//         }
+export function getCountryID(id) {
+    return async function (dispatch) {
+        try {
+            var json = await axios.get('http://localhost:3001/countries/'+ id);
+        return dispatch({
+             type: 'GET_COUNTRY_BY_ID',
+             payload: json.data
+        })
+        } catch (error) {
+            console.log(error)
+        }
         
-//     }   
-// };
+    }   
+};
 
 //? FILTERS
 export function filterCountriesByContinent (payload) { //Payload=value del input

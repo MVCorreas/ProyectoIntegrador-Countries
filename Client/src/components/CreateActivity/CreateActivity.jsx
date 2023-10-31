@@ -3,17 +3,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getActivities, postActivity, getDbCountries } from '../../redux/actions';
 import styles from './StyledCreate.module.css';
-//import { Validation } from '../Validation/Validation';
 import axios from 'axios';
 
 export default function CreateActivity() {
+
+    //?useSelector --> gets info from store
+    //?useDispatch --> sends info to store
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const countries = useSelector((state) => state.countries); 
     const activities = useSelector((state) => state.activities);
-   // const [isValidated, setIsValidated] = useState(false);
-   const [formSubmitted, setFormSubmitted] = useState(false);
-   const [isAnimated, setIsAnimated] = useState(false);
+    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [isAnimated, setIsAnimated] = useState(false);
 
 
 
@@ -40,22 +41,11 @@ export default function CreateActivity() {
 
     useEffect(() => {
         dispatch(getActivities());
-    }, []);
+    }, []); //[] the effect runs once after the initial mount, this means the effect doesnt depend on any state or prop to function
 
     useEffect(() => {
         dispatch(getDbCountries());
-      }, [dispatch]);
-
-    //?DIFFICULTY CHECKBOX
-
-    // function handleDifficulty (e) {
-    //     if (e.target.checked) {
-    //         setInput({
-    //             ...input,
-    //             difficulty: e.target.value,
-    //         })
-    //     }
-    // }
+      }, [dispatch]);// the effect will run whenever the dispatch function changes, or whatever is in the []. This means that the effect has access to the latest dispatch changes
 
 
 //?INDIVUAL VALIDATION 
@@ -129,7 +119,7 @@ function validation(property, value) {
             break;
     }
 }
-//?FUNCTION TO VALIDATE THE ENTIRE FORM AND SHOW ALL MESSAGES ON SUBMIT
+//?FUNCTION TO VALIDATE THE ENTIRE FORM --> to provide messages only on submitting the form
 
 function validateForm() {
     const fieldErrors = {
@@ -184,7 +174,7 @@ function validateForm() {
     return Object.values(fieldErrors).every((error) => error === '');
 }
 
-//? FUCNION PARA VALIDAR LOS CAMBIOS DE INPUT
+//? FUCNION PARA VALIDAR LOS CAMBIOS DE INPUT 
     function handleChange (e) {
         const property = e.target.name;
         const value = e.target.value;
@@ -193,14 +183,14 @@ function validateForm() {
     validation(property, value);
     setInput({ ...input, [property]: value });
 
-    if (property === 'difficulty') {
+    if (property === 'difficulty') { //animación de la barra pero solo si es ejecutada primero
         setIsAnimated(true);
       }
 }
     
-//?FUNCION PARA TODOS LOS SELECT Y VALIDACION DE ERRORES
+//?FUNCION PARA TODOS LOS SELECT Y VALIDACION DE ERRORES --> permite ver en el select los valores seleccionados
    
-    function handleSelect(e) {
+    function handleSelect(e) { 
         const selectedValue = e.target.value;
         const property = e.target.name;
     
@@ -249,7 +239,6 @@ function validateForm() {
 
     //?SUBMIT BUTTON
     const handleSubmit = async (e) => {
-       // console.log('handleSubmit is called');
         e.preventDefault();
 
         // Llama a validateForm para verificar si hay errores

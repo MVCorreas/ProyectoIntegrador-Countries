@@ -59,7 +59,7 @@ const rootReducer = (state = initialState, action) => {
       case POST_ACTIVITY:
         const updatedActivities = [...state.activities, action.payload];
         return { ...state, activities: updatedActivities };
-      
+    
       case GET_COUNTRY_DETAIL:
           return {...state, countryDetail: action.payload};
       

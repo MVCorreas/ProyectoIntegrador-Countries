@@ -21,19 +21,21 @@ const postActivities = async (req, res) => {
       duration,
     });
 
+    const activityId = createdActivity.id; // Obtener el ID de la actividad creada
+
     // Buscar los objetos de país correspondientes por nombre
     const countryObjects = await Country.findAll({
       where: {
-        name: {//busca por nombre, no ID, para que en el front pueda desplegar el select con nombres e ir sumando nombres (no IDs) al array
-          [Op.in]: countries, // Buscar por nombre en lugar de ID, checks if a value is in a list of values
+        name: {
+          [Op.in]: countries,
         },
       },
     });
 
     // Asociar la actividad con los países encontrados
-    await createdActivity.setCountries(countryObjects); //setCountries reemplaza todas las asociaciones existentes con las nuevas, mientras que addCountries agrega nuevas asociaciones a las existentes sin eliminarlas. 
+    await createdActivity.setCountries(countryObjects);
 
-    res.status(201).json('Activity created successfully');
+    res.status(201).json({ id: activityId, message: 'Activity created successfully' }); // Devolver el ID de la actividad
   } catch (error) {
     console.error(error);
     const errorMessage = error instanceof TypeError && error.message.includes('404') ? 'Country not found' : 'Internal Server Error';
