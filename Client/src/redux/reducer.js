@@ -66,12 +66,6 @@ const rootReducer = (state = initialState, action) => {
       case CLEAN_DETAIL:
           return {...state, countryDetail: {}};
       
-      case ADD_FAV:
-          return { ...state, myFavorites: [...state.myFavorites, action.payload] };  
-      
-      case REMOVE_FAV:
-          return {...state, myFavorites: state.myFavorites.filter((country) => country.id !== action.payload)};
-      
       case SET_CURRENT_PAGE:
           return {...state, currentPage: payload,};
           

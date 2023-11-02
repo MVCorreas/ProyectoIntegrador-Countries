@@ -16,8 +16,6 @@ export default function CreateActivity() {
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [isAnimated, setIsAnimated] = useState(false);
 
-
-
     const [input, setInput] = useState({
         name: '',
         type: '',
@@ -27,7 +25,6 @@ export default function CreateActivity() {
         season: '',
         countries: [],      
     });
-    //console.log(input)
 
     const [errors, setErrors] = useState({
         name: '',
@@ -168,7 +165,6 @@ function validateForm() {
     }
 
     setErrors(fieldErrors);
-    console.log('validateForm', fieldErrors);
 
     // Devuelve true si no hay errores, de lo contrario, devuelve false
     return Object.values(fieldErrors).every((error) => error === '');
@@ -266,14 +262,16 @@ function validateForm() {
                         name: '',
                         type: '',
                         description: '',
-                        difficulty: 1,
+                        difficulty: '',
                         duration: '',
                         season: '',
                         countries: [],
                     });
-
-                    alert('Activity created successfully');
-                    navigate('/home');
+                    alert('Activity successfully created');
+                    setTimeout(() => {
+                        navigate('/home');
+                      }, "2000");
+                  
                 } else {
                     console.error('Error in the activity POST', response);
                     alert('Please, complete all fields before submitting the form');

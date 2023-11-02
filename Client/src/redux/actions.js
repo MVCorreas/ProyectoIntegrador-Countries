@@ -16,8 +16,6 @@ export const ADD_FAV = 'ADD_FAV';
 export const REMOVE_FAV = 'REMOVE_FAV';
 export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 
-// export const LOGOUT = "LOGOUT";
-
 
 //?CONNECTION BACK AND FRONTEND
 export function getDbCountries() {
@@ -141,30 +139,6 @@ export const cleanDetail = () => {
     return {
         type: CLEAN_DETAIL
     }
-};
-
-export const addFav = (country) => {
-    const endpoint = 'http://localhost:3001/favorites'
-    return async (dispatch) => {
-        try {
-          const data = { country: country }; // para poder hacer el destructuring en el server
-          const response = await axios.post(endpoint, data); //lo que cargo en el payload
-          return dispatch({
-            type: ADD_FAV,
-            payload: response.data,
-          });
-        } catch (error) {
-            console.error('Error al agregar favorito:', error);
-          window.alert(error.message);
-        }
-      };
-  };
-
-export const removeFav = (id) => {
-        return {
-            type: REMOVE_FAV,
-            payload: id
-        }
 };
 
 export const setCurrentPage = (page) => {

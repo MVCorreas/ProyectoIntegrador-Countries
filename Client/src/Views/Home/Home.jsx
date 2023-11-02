@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDbCountries, filterCountriesByContinent, filterByActivity, orderByName, orderByPopulation } from '../../redux/actions';
 import Card from '../../components/Card/Card';
@@ -14,7 +13,6 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1); //pagina principal
   const [countriesPerPage, setCountriesPerPage] = useState(10); //cantidad de cartas por pag
   const filters = useSelector((state) => state.filters);
-  const navigate = useNavigate();
 
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;

@@ -4,14 +4,15 @@ import styles from './Paginado.module.css';
 export default function Paginado({ countriesPerPage, allCountries, paginate, totalPages, currentPage }) {
   const pageNumbers = [];
 
+  //?determine the range of page numbers to display in the pagination
   for (let i = 1; i <= Math.ceil(allCountries / countriesPerPage); i++) { //ceil redondea para arriba
     pageNumbers.push(i);
   }
 
   const numButtons = 5;
-  const range = Math.floor(numButtons / 2);
+  const range = Math.floor(numButtons / 2); //botón del centro - 2 antes y 2 después del current page
 
-  const startPage = Math.max(1, currentPage - range);
+  const startPage = Math.max(1, currentPage - range); //starting page at least 1
   const endPage = Math.min(totalPages, currentPage + range);
 
   return (

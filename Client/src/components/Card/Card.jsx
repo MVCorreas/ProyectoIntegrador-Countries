@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './StyledCard.module.css';
 
 const Card = (props) => {
   const { id, flag, name, continents, area, population, subregion, Activities } = props;
   const [isFav, setIsFav] = useState(false);
+
+
+//? localStorage --> web API that allows you to store key-value pairs in a web browser with no expiration time
+//?JSON.parse --> parse a JSON string and convert it into a JavaScript object
+//? [] empty array as a default value
+//? 'my favorites' name of the key
 
   useEffect(() => {
     // Cuando el componente se monta, verifica si este elemento está en favoritos
@@ -15,12 +21,12 @@ const Card = (props) => {
 
   const handleFavorite = () => {
     if (isFav) {
-      // Quitar de favoritos
+      // Quito favs
       const storedFavorites = JSON.parse(localStorage.getItem('myFavorites')) || [];
       const updatedFavorites = storedFavorites.filter((fav) => fav.id !== id);
-      localStorage.setItem('myFavorites', JSON.stringify(updatedFavorites));
+      localStorage.setItem('myFavorites', JSON.stringify(updatedFavorites)); //JSON.stringify convierte un objeto en un string
     } else {
-      // Agregar a favoritos
+      // Agrego favs
       const storedFavorites = JSON.parse(localStorage.getItem('myFavorites')) || [];
       const newFavorite = { id, flag, name, continents, area, subregion, population, Activities };
       storedFavorites.push(newFavorite);

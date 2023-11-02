@@ -9,12 +9,8 @@ import NavBar from './components/NavBar/NavBar';
 import Detail from './Views/Detail/Detail';
 import Home from './Views/Home/Home';
 import CreateActivity from './components/CreateActivity/CreateActivity';
-
 import BGImage from './assets/GloboLibros.jpeg';
 import Favorites from './components/Favorites/Favorites';
-
-
-
 
 const App = () => {
 
@@ -22,11 +18,8 @@ const App = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    setAccess(false);
-    // Reiniciar la página para que el usuario pueda volver a ingresar sus credenciales. y asi no queden cargadas tarjetas agregadas antes de desloguearse.
-    !access && navigate("/");
-    alert("¡See you!"); //! Por qué no aparece?
-    window.location.reload(); //fx que recarga la pagina y borra los cambios que hayan hecho
+    navigate('/'); 
+    // window.location.reload(); //fx que recarga la pagina y borra los cambios que hayan hecho, puede ser una operacion pesada, y puedo borrar cambios no guardados
   };
   
   if (location.pathname !== '/') {

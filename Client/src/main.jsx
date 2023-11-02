@@ -17,6 +17,6 @@ ReactDOM.createRoot(document.getElementById('root')).render( //renderiza la app 
 reportWebVitals();
 
 
-//PROVIDERE STORE --> Permite que los componentes accedan al estado global de la app
+//PROVIDER STORE --> Permite que los componentes accedan al estado global de la app
 //DOM --> DOM is not a JS language, but an API (Applicatiton Programming Interface) to create websites. It is a tree-like representation of a web page. It employs JS, HTML, CSS
 //App --> root component of the application

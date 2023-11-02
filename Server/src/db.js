@@ -13,7 +13,7 @@ const fs = require('fs');
 const path = require('path');
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env; //Emplea las variables de entonrno para config la URL de conexion
 
-//process.env.DB_HOST = 'localhost';
+process.env.DB_HOST = 'localhost';
 console.log(process.env.DB_HOST);
 
 const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
@@ -43,7 +43,7 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
-const { Country, Activity, User, Favorite } = sequelize.models;
+const { Country, Activity, Favorite } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -52,8 +52,6 @@ const { Country, Activity, User, Favorite } = sequelize.models;
 
 Country.belongsToMany(Activity, {through: 'country_activity'});
 Activity.belongsToMany(Country, {through: 'country_activity'});
-Favorite.belongsToMany(Country, {through: 'favorite-country'});
-
 
 
 module.exports = {

@@ -9,11 +9,10 @@ import { Link } from 'react-router-dom';
 const Favorites = () => {
   const location = useLocation();
   const [favorites, setFavorites] = useState([]);
-
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 5; // Cantidad de tarjetas por página
   const isFavoritesPage = location.pathname === '/favorites';
-  // const [isFav, setIsFav] = useState(false);
+  
 
   useEffect(() => {
     const storedFavorites = JSON.parse(localStorage.getItem('myFavorites')) || [];
@@ -21,35 +20,15 @@ const Favorites = () => {
   }, [location]);
   
   
-
-  // const handleFavorite = ( id) => {
-  //   const updatedFavorites = favorites.map((card) => {
-  //     if (card.id === id) {
-  //       // Invertir el estado de "favorito" de la tarjeta
-  //       return { ...card, isFav: !card.isFav };
-  //     }
-  //     return card;
-  //   });
-
-  //   setFavorites(updatedFavorites);
-
-  //   // Actualiza el localStorage con la lista actualizada de favoritos
-  //   localStorage.setItem('myFavorites', JSON.stringify(updatedFavorites));
-  // };
-
-
- //?Paginación
+  //?Paginación
   const handlePageChange = (pageNumber) => {
     if (pageNumber >= 1 && pageNumber <= Math.ceil(favorites.length / cardsPerPage)) {
       setCurrentPage(pageNumber);
     }
   };
 
-  // Calcula el índice de la última tarjeta en la página actual
   const indexOfLastCard = currentPage * cardsPerPage;
-  // Calcula el índice de la primera tarjeta en la página actual
-  const indexOfFirstCard = indexOfLastCard - cardsPerPage +1;
-  // Obtiene las tarjetas para mostrar en la página actual
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage + 1;
   const currentCards = favorites.slice(indexOfFirstCard, indexOfLastCard);
 
   return (
