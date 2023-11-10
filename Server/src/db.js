@@ -11,12 +11,12 @@ const { Sequelize } = require("sequelize"); //Crea instancia de Sequelize
 
 const fs = require('fs');
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env; //Emplea las variables de entonrno para config la URL de conexion
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env; //Emplea las variables de entonrno para config la URL de conexion
 
 process.env.DB_HOST = 'localhost';
 console.log(process.env.DB_HOST);
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
   logging: false, 
   native: false, 
 });
