@@ -20,7 +20,7 @@ export const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 //?CONNECTION BACK AND FRONTEND
 export function getDbCountries() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3001/countries');//Saqué {}
+        var json = await axios.get('https://picountries-server.onrender.com/countries');//Saqué {}
         return dispatch({
              type: 'GET_DB_COUNTRIES',
              payload: json.data
@@ -32,7 +32,7 @@ export function getDbCountries() {
 //?GET ACTIVITIES
 export function getActivities() {
     return async function (dispatch) {
-        var json = await axios.get('http://localhost:3001/activities');
+        var json = await axios.get('https://picountries-server.onrender.com/activities');
         return dispatch({
              type: 'GET_ACTIVITIES',
              payload: json.data
@@ -44,7 +44,7 @@ export function getActivities() {
 //?POST ACTIVITY
 export function postActivity(payload) {
     return async function (dispatch) {
-        var response = await axios.post('http://localhost:3001/activities', payload)
+        var response = await axios.post('https://picountries-server.onrender.com/activities', payload)
         console.log(response)
         return dispatch({
             type: 'POST_ACTIVITY',
@@ -58,7 +58,7 @@ export function postActivity(payload) {
 export function getCountryName(name) {
     return async function (dispatch) {
         try {
-            var json = await axios.get('http://localhost:3001/countries?name='+ name);//Saqué {}
+            var json = await axios.get('https://picountries-server.onrender.com/countries?name='+ name);//Saqué {}
         return dispatch({
              type: 'GET_COUNTRY_BY_NAME',
              payload: json.data
@@ -74,7 +74,7 @@ export function getCountryName(name) {
 export function getCountryID(id) {
     return async function (dispatch) {
         try {
-            var json = await axios.get('http://localhost:3001/countries/'+ id);
+            var json = await axios.get('https://picountries-server.onrender.com/countries/'+ id);
         return dispatch({
              type: 'GET_COUNTRY_BY_ID',
              payload: json.data
@@ -120,7 +120,7 @@ export function orderByPopulation (payload) {
 export const getCountryDetail = (id) => {
     return async function (dispatch) {
         try {
-            var json = await axios.get(`http://localhost:3001/countries/${id}`);
+            var json = await axios.get(`https://picountries-server.onrender.com/countries/${id}`);
             // console.log(json.data)
             return dispatch({
                 type: 'GET_COUNTRY_DETAIL',
