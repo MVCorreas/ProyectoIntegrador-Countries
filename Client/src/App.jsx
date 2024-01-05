@@ -1,6 +1,6 @@
 //?COMPONENTE RAIZ DE LA APP
 
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import './App.css';
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 import Landing from '../src/Views/Landing/Landing';
